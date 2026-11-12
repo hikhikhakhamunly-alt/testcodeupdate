@@ -3,23 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Stock & Fish — Đại dương</title>
+<title>Stock & Fish — Rùa Thần</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#020a20;color:#eefaff;font:14px/1.4 system-ui,Segoe UI,Arial,sans-serif;overflow-x:hidden}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer;border:1px solid #2edfff;color:#fff;background:linear-gradient(135deg,#0876ed,#09c8f1);border-radius:10px;padding:8px 12px;font-weight:800;transition:transform .12s,filter .15s,opacity .15s;display:inline-flex;align-items:center;justify-content:center;gap:6px}
-button:hover:not(:disabled){filter:brightness(1.15)}
-button:active:not(:disabled){transform:translateY(2px) scale(.97)}
-button:disabled{opacity:.45;cursor:not-allowed}
+button{cursor:pointer;border:1px solid #2edfff;color:#fff;background:linear-gradient(135deg,#0876ed,#09c8f1);border-radius:10px;padding:8px 12px;font-weight:800}
 button.red{background:linear-gradient(135deg,#b91c48,#f44d75);border-color:#ff7fa0}
 button.gold{background:linear-gradient(135deg,#e5a900,#ffdf62);color:#17223a;border-color:#ffe066}
 button.ghost{background:transparent;color:#7de8ff}
-button.busy{pointer-events:none;opacity:.85}
-.spin{display:inline-block;width:12px;height:12px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:rot .7s linear infinite}
-@keyframes rot{to{transform:rotate(360deg)}}
-input,select,textarea{background:#06132a;color:#fff;border:1px solid #21649a;border-radius:8px;padding:9px;width:100%}
-input[type=checkbox]{width:auto}
+button:disabled{opacity:.45;cursor:not-allowed}
+input,select{background:#06132a;color:#fff;border:1px solid #21649a;border-radius:8px;padding:9px;width:100%}
 .inline{width:auto;display:inline-block}
 .hidden{display:none!important}
 .hint{color:#92b6d1;font-size:12px}
@@ -27,37 +20,30 @@ input[type=checkbox]{width:auto}
 .price{color:#ffd34f;font-weight:900}
 .center{text-align:center}
 .w{width:100%;margin-top:6px}
-.btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;align-items:center}
+.btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
 .screen{min-height:100vh;padding:16px;background:radial-gradient(ellipse at 50% 0,#07568b 0,#031735 44%,#02091b 100%)}
 .brand{text-align:center;font-size:clamp(28px,5vw,52px);font-weight:1000;color:#fff;text-shadow:0 3px 0 #0750a0,0 0 22px #00d9ff;margin-top:20px}
 .brand span{color:#ffd34f}
 .sub{text-align:center;color:#9cecff;margin:6px 0 20px}
 .authwrap{max-width:820px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .card{border:1px solid #159fe8;border-radius:16px;background:linear-gradient(145deg,#07315bdb,#04132df2);padding:20px}
-.card input{margin:6px 0}
 .link{color:#7de8ff;text-decoration:underline;cursor:pointer}
 .home{max-width:1100px;margin:0 auto;padding:6px}
 .home-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:16px;background:#04142be8;border:1px solid #176ca6;border-radius:14px;padding:12px 16px}
-.home-top h2{margin:0;font-size:20px}
 .gamegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 @media(min-width:760px){.gamegrid{grid-template-columns:repeat(4,1fr)}}
-.gtile{border:1px solid #1c6090;border-radius:16px;background:linear-gradient(145deg,#07315b,#04132d);padding:18px 10px;text-align:center;cursor:pointer;transition:transform .15s,border-color .15s;min-height:132px;display:flex;flex-direction:column;justify-content:center;align-items:center;color:inherit;text-decoration:none}
-.gtile:hover{transform:translateY(-3px);border-color:#ffd34f}
+.gtile{border:1px solid #1c6090;border-radius:16px;background:linear-gradient(145deg,#07315b,#04132d);padding:18px 10px;text-align:center;cursor:pointer;min-height:132px;display:flex;flex-direction:column;justify-content:center;align-items:center;color:inherit;text-decoration:none}
 .gtile .ic{font-size:40px}
-.gtile b{display:block;margin-top:6px;font-size:15px}
-.gtile small{color:#92b6d1;font-size:12px}
 .topbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:#04142be8;border:1px solid #176ca6;border-radius:14px;padding:10px;margin-bottom:12px}
 .money{margin-left:auto;color:#ffd34f;font-weight:900;font-size:19px}
-#evtBadge{color:#ff9e5e;font-weight:800}
-#annBar{position:fixed;top:0;left:0;right:0;background:linear-gradient(90deg,#b91c48,#e5a900);color:#fff;text-align:center;padding:8px;font-weight:800;z-index:98}
 .layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,.9fr);gap:12px}
 .panel{background:linear-gradient(150deg,#06264b,#04142e);border:1px solid #147bb3;border-radius:14px;overflow:hidden;margin-bottom:12px}
-.ph{padding:10px 12px;background:#092b50;border-bottom:1px solid #13537d;font-weight:900;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.ph{padding:10px 12px;background:#092b50;border-bottom:1px solid #13537d;font-weight:900}
 .pb{padding:10px 12px;font-size:13px;color:#b5ddf8}
 .arena{position:relative;height:480px;overflow:hidden;background:radial-gradient(ellipse at 50% 0,#8ff7ff 0,#1aa8e0 22%,#0a5fa8 52%,#052a5c 80%,#020d2c 100%)}
 .arena.rage{background:radial-gradient(ellipse at 50% 0,#ffb3b3 0,#c4305a 25%,#5a0f2e 60%,#1a0212 100%)}
 .arena.shake{animation:shk .35s}
-@keyframes shk{0%,100%{transform:translate(0,0)}25%{transform:translate(-6px,4px)}50%{transform:translate(5px,-4px)}75%{transform:translate(-3px,2px)}}
+@keyframes shk{25%{transform:translate(-6px,4px)}50%{transform:translate(5px,-4px)}75%{transform:translate(-3px,2px)}}
 .fish{position:absolute;width:84px;cursor:pointer;z-index:2;filter:drop-shadow(0 0 8px #16dfff);animation:swim 4s ease-in-out infinite alternate}
 .fish svg{width:100%;height:auto;display:block}
 .fish.dying{opacity:0;transform:scale(.3) rotate(180deg);transition:all .4s}
@@ -66,11 +52,12 @@ input[type=checkbox]{width:auto}
 .boss svg{width:100%;height:auto;display:block}
 .boss.toRight{animation-name:swimRight;transform:translateY(-50%) scaleX(-1)}
 .boss.toLeft{animation-name:swimLeft}
+.boss.patrol{animation-name:swimRight;animation-direction:alternate;animation-iteration-count:infinite}
+.boss.patrol.facingRight{transform:translateY(-50%) scaleX(-1)}
 @keyframes swimRight{from{left:-30%}to{left:110%}}
 @keyframes swimLeft{from{left:110%}to{left:-30%}}
-.boss.rage{filter:drop-shadow(0 0 26px #ff1f5a) hue-rotate(-30deg)}
 .boss.hit svg{animation:bh .2s}
-@keyframes bh{0%{scale:1}40%{scale:.9}100%{scale:1}}
+@keyframes bh{40%{scale:.9}}
 .boss.dying{opacity:0;transform:translateY(-50%) scale(.3) rotate(200deg);transition:all .9s}
 .bossbar{position:absolute;left:10px;right:10px;top:8px;z-index:6;text-align:center;text-shadow:0 2px 4px #001a33}
 .hpo{height:14px;border-radius:20px;background:#35142c;border:1px solid #ff5da9;overflow:hidden;margin-top:4px}
@@ -111,53 +98,32 @@ input[type=checkbox]{width:auto}
 .zn{position:absolute;top:0;bottom:0}
 .needle{position:absolute;top:-6px;bottom:-6px;width:6px;margin-left:-3px;background:#fff;box-shadow:0 0 12px #fff;border-radius:4px}
 .bcgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:600px;margin:10px auto}
-.bcf{border:2px solid #1c6090;border-radius:14px;background:#071b37;padding:10px;text-align:center;cursor:pointer;user-select:none}
-.bcf:hover{border-color:#ffd34f}
+.bcf{border:2px solid #1c6090;border-radius:14px;background:#071b37;padding:10px;text-align:center;cursor:pointer}
 .bcf .e{font-size:40px}
 .bcdice{display:flex;gap:14px;justify-content:center;min-height:110px;align-items:center;margin:12px 0}
-.die{width:90px;height:90px;display:flex;align-items:center;justify-content:center;font-size:52px;background:#fff;border-radius:16px;box-shadow:0 5px 0 #9aa8c2;animation:dp .5s}
-@keyframes dp{from{transform:rotate(-180deg) scale(.2)}to{transform:none}}
+.die{width:90px;height:90px;display:flex;align-items:center;justify-content:center;font-size:52px;background:#fff;border-radius:16px;box-shadow:0 5px 0 #9aa8c2}
 .wheel{font-size:70px;text-align:center;margin:10px 0}
 .segs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:10px 0}
 .seg{border:1px solid #1c6090;border-radius:10px;padding:8px 10px;background:#071b37;font-size:13px;min-width:70px;text-align:center}
 .seg.on{border-color:#ffe66b;background:#13385b;box-shadow:0 0 12px #ffe66b}
 table{width:100%;border-collapse:collapse;font-size:13px}
 th,td{padding:7px 6px;text-align:left;border-bottom:1px solid #123b5c}
-@media(max-width:850px){
-  .screen{padding:10px}
-  .authwrap{grid-template-columns:1fr}
-  .layout{grid-template-columns:1fr}
-  .arena{height:360px}
-  .money{font-size:16px}
-  .controls button{flex:1 1 auto}
-  .over{padding:6px}
-  .ob{padding:10px}
-  .bcgrid{grid-template-columns:repeat(3,1fr);gap:6px}
-  .bcf .e{font-size:30px}
-  .gc svg{height:80px}
-}
-@media(max-width:480px){
-  .arena{height:300px}
-  .cannon{width:90px;height:90px}
-  .boss{width:min(170px,45%)}
-  .topbar button{padding:6px 8px;font-size:12px}
-}
+@media(max-width:850px){.screen{padding:10px}.authwrap{grid-template-columns:1fr}.layout{grid-template-columns:1fr}.arena{height:360px}}
+@media(max-width:480px){.arena{height:300px}.cannon{width:90px;height:90px}.boss{width:min(170px,45%)}}
 </style>
 </head>
 <body>
-
 <div id="notice" class="hidden" style="position:fixed;top:14px;left:50%;transform:translateX(-50%);background:#09284a;border:1px solid #35eaff;border-radius:12px;padding:10px 16px;z-index:99;max-width:90%;text-align:center"></div>
-<div id="annBar" class="hidden"></div>
+<div id="annBar" class="hidden" style="position:fixed;top:0;left:0;right:0;background:linear-gradient(90deg,#b91c48,#e5a900);color:#fff;text-align:center;padding:8px;font-weight:800;z-index:98"></div>
 
-<!-- ĐĂNG NHẬP -->
 <section id="authScreen" class="screen">
   <div class="brand">STOCK <span>&</span> FISH</div>
-  <p class="sub">BẮN CÁ THEO PHÒNG • BẦU CUA • VÒNG QUAY • ĐUA NGỰA • TRÒ NHANH • CHỨNG KHOÁN • CHƠI BẰNG XU ẢO</p>
+  <p class="sub">BẮN CÁ • BẦU CUA • VÒNG QUAY • ĐUA NGỰA • TRÒ NHANH • CHỨNG KHOÁN • XU ẢO</p>
   <div class="authwrap">
     <div class="card">
       <div style="font-size:50px;text-align:center">🐉 🐠 🐬 🦈</div>
       <h2>Đại dương săn thưởng!</h2>
-      <p>6 phòng từ Tập Bắn đến Huyền Thoại, mỗi phòng 5 boss. Bầu cua online, vòng quay, đua ngựa, 6 trò nhanh, chứng khoán giả lập.</p>
+      <p>6 phòng từ Tập Bắn đến Huyền Thoại, mỗi phòng 5 boss — trong đó có <b>🐢 Rùa Thần Vàng</b>.</p>
       <p>🪙 Ví khởi đầu: <b class="price">100.000 xu</b></p>
       <p class="hint">Xu ảo, không nạp rút tiền thật.</p>
     </div>
@@ -179,18 +145,7 @@ th,td{padding:7px 6px;text-align:left;border-bottom:1px solid #123b5c}
       </div>
     </div>
   </div>
-  <div class="center" style="margin-top:18px">
-    <div class="card" style="display:inline-block;max-width:560px;width:100%">
-      <div class="hint">Mã thiết bị của bạn (dùng khi cần admin mở khóa):</div>
-      <div style="display:flex;gap:8px;align-items:center;margin-top:6px">
-        <input id="devIdBox" readonly style="font-family:Consolas,monospace;font-size:13px">
-        <button onclick="copyDevId()">📋 Sao chép mã thiết bị</button>
-      </div>
-    </div>
-  </div>
 </section>
-
-<!-- TRANG CHỦ -->
 <section id="homeScreen" class="screen hidden">
   <div class="home">
     <div class="home-top">
@@ -212,16 +167,11 @@ th,td{padding:7px 6px;text-align:left;border-bottom:1px solid #123b5c}
       <div class="gtile" onclick="openMini('hilo')"><div class="ic">🎲</div><b>Lớn nhỏ</b><small>Đoán 3 xúc xắc</small></div>
       <div class="gtile" onclick="openMini('pick')"><div class="ic">🎫</div><b>Bốc thăm</b><small>10 lá, 1 lá trúng</small></div>
       <div class="gtile" onclick="openMini('treasure')"><div class="ic">⛏️</div><b>Kho báu</b><small>Lưới 5×5, tránh bom</small></div>
-      <a class="gtile" href="https://hikhikhakhamunly-alt.github.io/keyadmin/reward.html" target="_blank" rel="noopener"><div class="ic">🎁</div><b>Nhận quà</b><small>Nhập mã sự kiện</small></a>
-      <a class="gtile" href="https://zalo.me/g/juyluzssqjuxvan7jqk6" target="_blank" rel="noopener"><div class="ic">📢</div><b>Nhóm Zalo</b><small>Tin thông báo sự kiện</small></a>
-      <a class="gtile" href="https://www.tiktok.com/@toandiemcaodetennyc1tuan" target="_blank" rel="noopener"><div class="ic">🎮</div><b>Tham gia admin</b><small>Ghi chú 5 vòng · cọc 100k</small></a>
-      <a class="gtile" href="https://www.tiktok.com/@toandiemcaodetennyc1tuan" target="_blank" rel="noopener"><div class="ic">📱</div><b>Liên hệ admin</b><small>TikTok: toandiemcaodetennyc1tuan</small></a>
     </div>
     <div class="center" style="margin-top:16px"><button class="red" onclick="logout()">Thoát</button></div>
   </div>
 </section>
 
-<!-- MÀN BẮN CÁ -->
 <section id="gameScreen" class="screen hidden">
   <div class="topbar">
     <button onclick="showHome()">🏠 Trang chủ</button>
@@ -237,7 +187,7 @@ th,td{padding:7px 6px;text-align:left;border-bottom:1px solid #123b5c}
       <div class="panel">
         <div class="ph"><span>🐟 ĐẠI CHIẾN ĐẠI DƯƠNG</span><span id="status" class="hint"></span></div>
         <div id="arena" class="arena">
-          <div class="bossbar">
+<div class="bossbar">
             <b>👑 <span id="bossName"></span> • Lv <span id="bossLv"></span> — <span id="bossText"></span></b>
             <div class="hpo"><div id="bossHp" class="hpi"></div></div>
           </div>
@@ -256,205 +206,109 @@ th,td{padding:7px 6px;text-align:left;border-bottom:1px solid #123b5c}
       </div>
     </div>
     <div>
-      <div class="panel">
-        <div class="ph">🎁 Tặng xu & mã quà</div>
-        <div class="pb">
-          <div style="display:flex;gap:6px">
-            <input id="friendName" placeholder="Tên người chơi">
-            <button onclick="addFriend()">+ Thêm</button>
-          </div>
-          <select id="friendSel" style="margin:6px 0"></select>
-          <input id="giftAmt" type="number" min="1000" step="1000" value="10000">
-          <button class="w" onclick="sendGift()">🎁 Tặng bạn (phí 5%)</button>
-          <div id="friendList" style="margin-top:6px"></div>
-          <hr style="border-color:#13537d">
-          <div class="hint">Nhập mã quà do admin phát để nhận xu. Mỗi mã dùng 1 lần.</div>
-          <input id="giftCodeIn" placeholder="Dán mã quà" style="margin-top:6px">
-          <button class="w" onclick="redeemCode()">📥 Nhận bằng mã</button>
-        </div>
-      </div>
+      <div class="panel"><div class="ph">🎁 Tặng xu & mã quà</div><div class="pb">
+        <div style="display:flex;gap:6px"><input id="friendName" placeholder="Tên người chơi"><button onclick="addFriend()">+ Thêm</button></div>
+        <select id="friendSel" style="margin:6px 0"></select>
+        <input id="giftAmt" type="number" min="1000" step="1000" value="10000">
+        <button class="w" onclick="sendGift()">🎁 Tặng bạn (phí 5%)</button>
+        <div id="friendList" style="margin-top:6px"></div>
+        <hr style="border-color:#13537d">
+        <div class="hint">Nhập mã quà do admin phát để nhận xu. Mỗi mã dùng 1 lần.</div>
+        <input id="giftCodeIn" placeholder="Dán mã quà" style="margin-top:6px">
+        <button class="w" onclick="redeemCode()">📥 Nhận bằng mã</button>
+      </div></div>
       <div class="panel"><div class="ph">🎯 Nhiệm vụ hôm nay</div><div class="pb" id="questBox"></div></div>
       <div class="panel"><div class="ph">🎒 Kho đồ</div><div class="pb" id="invBox"></div></div>
       <div class="panel"><div class="ph">🏆 Bảng xếp hạng</div><div class="pb" id="boardBox"></div></div>
-      <div class="panel">
-        <div class="ph">📈 Thị trường nhanh</div>
-        <div class="pb"><table><tbody id="stockRows"></tbody></table></div>
-        <div class="feed" id="feed"></div>
-      </div>
+      <div class="panel"><div class="ph">📈 Thị trường nhanh</div><div class="pb"><table><tbody id="stockRows"></tbody></table></div><div class="feed" id="feed"></div></div>
     </div>
   </div>
   <div class="center hint" style="padding:10px">Demo giải trí bằng xu ảo • Không nạp/rút tiền thật</div>
 </section>
 
-<!-- SẢNH PHÒNG -->
-<div id="roomView" class="over hidden">
-  <div class="ob">
-    <div class="oh"><b style="font-size:22px">🏝️ CHỌN PHÒNG</b><button onclick="closeRoom()">← Đóng</button></div>
-    <div class="hint center" style="margin-bottom:10px">Mỗi phòng có 5 boss, đi lần lượt từ dễ đến siêu khó. Tiến độ lưu riêng từng phòng.</div>
-    <div class="rooms" id="roomList"></div>
-  </div>
-</div>
+<div id="roomView" class="over hidden"><div class="ob">
+  <div class="oh"><b style="font-size:22px">🏝️ CHỌN PHÒNG</b><button onclick="closeRoom()">← Đóng</button></div>
+  <div class="hint center" style="margin-bottom:10px">Mỗi phòng có 5 boss, đi lần lượt từ dễ đến siêu khó. Tiến độ lưu riêng từng phòng.</div>
+  <div class="rooms" id="roomList"></div>
+</div></div>
 
-<!-- BẦU CUA -->
-<div id="bcView" class="over hidden">
-  <div class="ob">
-    <div class="oh">
-      <b style="font-size:22px">🎲 BẦU CUA — <span id="bcRoom"></span></b>
-      <div class="price">🪙 <span id="bcWallet"></span></div>
-      <button onclick="backHome('bcView')">🏠 Trang chủ</button>
-    </div>
-    <div class="center" style="font-size:18px">Vòng kết thúc sau: <b class="price"><span id="bcTimer">--</span></b> giây</div>
-    <div class="hint center">Mọi người trong phòng chơi chung một vòng, kết quả do máy chủ quay.</div>
-    <div class="bcgrid" id="bcGrid"></div>
-    <div class="center">
-      Mức cược:
-      <select id="bcChip" class="inline">
-        <option value="1000">1.000</option><option value="10000" selected>10.000</option>
-        <option value="50000">50.000</option><option value="100000">100.000</option>
-      </select>
-    </div>
-    <div class="bcdice" id="bcDice"><div class="hint">Đang chờ vòng trước...</div></div>
-    <div class="res" id="bcRes"></div>
-    <div class="panel" style="margin-top:10px"><div class="ph">Cược của mọi người trong vòng</div>
-      <div class="pb" id="bcBetsList" style="max-height:180px;overflow:auto"></div>
-    </div>
-    <div class="hint center" id="bcHist"></div>
-  </div>
-</div>
+<div id="bcView" class="over hidden"><div class="ob">
+  <div class="oh"><b style="font-size:22px">🎲 BẦU CUA — <span id="bcRoom"></span></b><div class="price">🪙 <span id="bcWallet"></span></div><button onclick="backHome('bcView')">🏠 Trang chủ</button></div>
+<div class="center" style="font-size:18px">Vòng kết thúc sau: <b class="price"><span id="bcTimer">--</span></b> giây</div>
+  <div class="hint center">Mọi người trong phòng chơi chung một vòng, kết quả do máy chủ quay.</div>
+  <div class="bcgrid" id="bcGrid"></div>
+  <div class="center">Mức cược: <select id="bcChip" class="inline"><option value="1000">1.000</option><option value="10000" selected>10.000</option><option value="50000">50.000</option><option value="100000">100.000</option></select></div>
+  <div class="bcdice" id="bcDice"><div class="hint">Đang chờ vòng trước...</div></div>
+  <div class="res" id="bcRes"></div>
+  <div class="panel" style="margin-top:10px"><div class="ph">Cược của mọi người trong vòng</div><div class="pb" id="bcBetsList" style="max-height:180px;overflow:auto"></div></div>
+  <div class="hint center" id="bcHist"></div>
+</div></div>
 
-<!-- VÒNG QUAY -->
-<div id="wheelView" class="over hidden">
-  <div class="ob">
-    <div class="oh">
-      <b style="font-size:22px">🎡 VÒNG QUAY</b>
-      <div class="price">🪙 <span id="wheelWallet"></span></div>
-      <button onclick="closeWheel()">🏠 Trang chủ</button>
-    </div>
-    <div class="hint center">Chọn mệnh giá rồi quay. Kết quả do máy chủ quyết định.</div>
-    <div class="center" id="wheelBets" style="margin:10px 0"></div>
-    <div class="wheel" id="wheelDisp">🎡</div>
-    <div class="segs" id="wheelSegs"></div>
-    <div class="center"><button id="wheelBtn" class="gold" style="font-size:18px;padding:12px 26px" onclick="spinWheel()">🎡 QUAY</button></div>
-    <div class="res" id="wheelRes"></div>
-    <div class="hint center" id="wheelTable"></div>
-  </div>
-</div>
+<div id="wheelView" class="over hidden"><div class="ob">
+  <div class="oh"><b style="font-size:22px">🎡 VÒNG QUAY</b><div class="price">🪙 <span id="wheelWallet"></span></div><button onclick="closeWheel()">🏠 Trang chủ</button></div>
+  <div class="hint center">Chọn mệnh giá rồi quay. Kết quả do máy chủ quyết định.</div>
+  <div class="center" id="wheelBets" style="margin:10px 0"></div>
+  <div class="wheel" id="wheelDisp">🎡</div>
+  <div class="segs" id="wheelSegs"></div>
+  <div class="center"><button id="wheelBtn" class="gold" style="font-size:18px;padding:12px 26px" onclick="spinWheel()">🎡 QUAY</button></div>
+  <div class="res" id="wheelRes"></div>
+  <div class="hint center" id="wheelTable"></div>
+</div></div>
 
-<!-- ĐUA NGỰA -->
-<div id="horseView" class="over hidden">
-  <div class="ob">
-    <div class="oh">
-      <b style="font-size:22px">🐎 ĐUA NGỰA</b>
-      <div class="price">🪙 <span id="horseWallet"></span></div>
-      <button onclick="closeHorse()">🏠 Trang chủ</button>
-    </div>
-    <div class="hint center">Chọn ngựa và mức cược. Về nhất ×5, về nhì ×2, còn lại mất cược.</div>
-    <div id="horseTrack" style="margin:12px 0"></div>
-    <div class="center">
-      Ngựa:
-      <select id="horsePick" class="inline"></select>
-      Cược:
-      <select id="horseBet" class="inline">
-        <option value="1000">1.000</option><option value="10000" selected>10.000</option>
-        <option value="50000">50.000</option><option value="100000">100.000</option>
-      </select>
-      <button class="gold" id="horseGo" onclick="startHorse()">🏁 XUẤT PHÁT</button>
-    </div>
-    <div class="res" id="horseRes"></div>
-  </div>
-</div>
+<div id="horseView" class="over hidden"><div class="ob">
+  <div class="oh"><b style="font-size:22px">🐎 ĐUA NGỰA</b><div class="price">🪙 <span id="horseWallet"></span></div><button onclick="closeHorse()">🏠 Trang chủ</button></div>
+  <div class="hint center">Chọn ngựa và mức cược. Về nhất ×5, về nhì ×2, còn lại mất cược.</div>
+  <div id="horseTrack" style="margin:12px 0"></div>
+  <div class="center">Ngựa: <select id="horsePick" class="inline"></select> Cược: <select id="horseBet" class="inline"><option value="1000">1.000</option><option value="10000" selected>10.000</option><option value="50000">50.000</option><option value="100000">100.000</option></select> <button class="gold" id="horseGo" onclick="startHorse()">🏁 XUẤT PHÁT</button></div>
+  <div class="res" id="horseRes"></div>
+</div></div>
 
-<!-- KHO SÚNG -->
-<div id="shopView" class="over hidden">
-  <div class="ob">
-    <div class="oh">
-      <div><b style="font-size:22px">🔫 KHO SÚNG</b><div class="hint">Súng đắt hơn thì hình đẹp hơn và sát thương cao hơn.</div></div>
-      <div class="price">🪙 <span id="shopWallet"></span></div>
-      <button onclick="closeShop()">🏠 Trang chủ</button>
-    </div>
-    <div class="grid" id="shopGrid"></div>
-  </div>
-</div>
+<div id="shopView" class="over hidden"><div class="ob">
+  <div class="oh"><div><b style="font-size:22px">🔫 KHO SÚNG</b><div class="hint">Súng đắt hơn thì hình đẹp hơn và sát thương cao hơn.</div></div><div class="price">🪙 <span id="shopWallet"></span></div><button onclick="closeShop()">🏠 Trang chủ</button></div>
+  <div class="grid" id="shopGrid"></div>
+</div></div>
 
-<!-- CỬA & MỞ KHÓA -->
-<div id="gamesView" class="over hidden">
-  <div class="ob">
-    <div class="oh">
-      <b style="font-size:22px">🎮 CỬA & MỞ KHÓA</b>
-      <div class="price">🪙 <span id="gameWallet"></span></div>
-      <button onclick="closeGames()">🏠 Trang chủ</button>
-    </div>
-    <div class="tabs2">
-      <button onclick="gameTab('door')">🚪 Cửa may rủi</button>
-      <button onclick="gameTab('lock')">🔓 Mở khóa</button>
-    </div>
-    <div id="panelDoor" class="center">
-      <div>Cược: <select id="doorBet" class="inline">
-        <option value="1000">1.000</option><option value="10000" selected>10.000</option>
-        <option value="50000">50.000</option><option value="100000">100.000</option></select></div>
-      <div class="doors" id="doors"></div>
-      <div class="res" id="doorRes"></div>
-      <div class="hint">🪙 Xu ×1,2 • 🎁 Rương ×2,2 • 👾 Quái vật mất cược</div>
-    </div>
-    <div id="panelLock" class="hidden center">
-      <div>Cược: <select id="lockBet" class="inline">
-        <option value="1000">1.000</option><option value="10000" selected>10.000</option>
-        <option value="50000">50.000</option><option value="100000">100.000</option></select></div>
-      <div class="lock">
-        <div class="zn" style="left:20%;width:60%;background:#ffd34f33"></div>
-        <div class="zn" style="left:38%;width:24%;background:#47ffb355"></div>
-        <div class="zn" style="left:46%;width:8%;background:#ff4d6d99"></div>
-        <div class="needle" id="needle" style="left:0%"></div>
-      </div>
-      <button class="gold" style="font-size:18px;padding:12px 26px" onclick="lockPress()">🔓 MỞ KHÓA</button>
-      <div class="res" id="lockRes"></div>
-      <div class="hint">Giữa đỏ ×3 • Gần giữa xanh ×1,5 • Vùng vàng ×1 • Ngoài vùng mất cược</div>
-    </div>
+<div id="gamesView" class="over hidden"><div class="ob">
+<div class="oh"><b style="font-size:22px">🎮 CỬA & MỞ KHÓA</b><div class="price">🪙 <span id="gameWallet"></span></div><button onclick="closeGames()">🏠 Trang chủ</button></div>
+  <div class="tabs2"><button onclick="gameTab('door')">🚪 Cửa may rủi</button><button onclick="gameTab('lock')">🔓 Mở khóa</button></div>
+  <div id="panelDoor" class="center">
+    <div>Cược: <select id="doorBet" class="inline"><option value="1000">1.000</option><option value="10000" selected>10.000</option><option value="50000">50.000</option><option value="100000">100.000</option></select></div>
+    <div class="doors" id="doors"></div>
+    <div class="res" id="doorRes"></div>
+    <div class="hint">🪙 Xu ×1,2 • 🎁 Rương ×2,2 • 👾 Quái vật mất cược</div>
   </div>
-</div>
+  <div id="panelLock" class="hidden center">
+    <div>Cược: <select id="lockBet" class="inline"><option value="1000">1.000</option><option value="10000" selected>10.000</option><option value="50000">50.000</option><option value="100000">100.000</option></select></div>
+    <div class="lock">
+      <div class="zn" style="left:20%;width:60%;background:#ffd34f33"></div>
+      <div class="zn" style="left:38%;width:24%;background:#47ffb355"></div>
+      <div class="zn" style="left:46%;width:8%;background:#ff4d6d99"></div>
+      <div class="needle" id="needle" style="left:0%"></div>
+    </div>
+    <button class="gold" style="font-size:18px;padding:12px 26px" onclick="lockPress()">🔓 MỞ KHÓA</button>
+    <div class="res" id="lockRes"></div>
+    <div class="hint">Giữa đỏ ×3 • Gần giữa xanh ×1,5 • Vùng vàng ×1 • Ngoài vùng mất cược</div>
+  </div>
+</div></div>
 
-<!-- CHỨNG KHOÁN -->
-<div id="marketView" class="over hidden">
-  <div class="ob">
-    <div class="oh">
-      <b style="font-size:22px">📈 CHỨNG KHOÁN</b>
-      <div class="price">🪙 <span id="marketWallet"></span></div>
-      <button onclick="closeMarket()">🏠 Trang chủ</button>
-    </div>
-    <div class="panel" style="overflow:auto">
-      <table>
-        <thead><tr><th>Mã</th><th>Ngành</th><th>Giá</th><th>Đổi</th><th>Đang giữ</th><th></th></tr></thead>
-        <tbody id="mkRows"></tbody>
-      </table>
-    </div>
-    <div class="panel"><div class="ph">📉 Biểu đồ (giả lập)</div>
-      <div class="pb">
-        <div id="mkChart" style="height:160px;border:1px solid #14517d;border-radius:10px;background:#04162d;padding:6px"></div>
-        <div id="mkChartInfo" style="padding-top:6px"></div>
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-      <div class="panel"><div class="ph">💼 Danh mục</div><div class="pb" id="mkPort"></div></div>
-      <div class="panel"><div class="ph">🧾 Lịch sử</div><div class="pb" id="mkTx" style="max-height:220px;overflow:auto"></div></div>
-    </div>
+<div id="marketView" class="over hidden"><div class="ob">
+  <div class="oh"><b style="font-size:22px">📈 CHỨNG KHOÁN</b><div class="price">🪙 <span id="marketWallet"></span></div><button onclick="closeMarket()">🏠 Trang chủ</button></div>
+  <div class="panel" style="overflow:auto"><table><thead><tr><th>Mã</th><th>Ngành</th><th>Giá</th><th>Đổi</th><th>Đang giữ</th><th></th></tr></thead><tbody id="mkRows"></tbody></table></div>
+  <div class="panel"><div class="ph">📉 Biểu đồ (giả lập)</div><div class="pb"><div id="mkChart" style="height:160px;border:1px solid #14517d;border-radius:10px;background:#04162d;padding:6px"></div><div id="mkChartInfo" style="padding-top:6px"></div></div></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <div class="panel"><div class="ph">💼 Danh mục</div><div class="pb" id="mkPort"></div></div>
+    <div class="panel"><div class="ph">🧾 Lịch sử</div><div class="pb" id="mkTx" style="max-height:220px;overflow:auto"></div></div>
   </div>
-</div>
+</div></div>
 
-<!-- TRÒ NHANH -->
-<div id="miniView" class="over hidden">
-  <div class="ob">
-    <div class="oh">
-      <b id="miniTitle" style="font-size:22px"></b>
-      <div class="price">🪙 <span id="miniWallet"></span></div>
-      <button onclick="closeMini()">🏠 Trang chủ</button>
-    </div>
-    <div id="miniBody"></div>
-  </div>
-</div>
+<div id="miniView" class="over hidden"><div class="ob">
+  <div class="oh"><b id="miniTitle" style="font-size:22px"></b><div class="price">🪙 <span id="miniWallet"></span></div><button onclick="closeMini()">🏠 Trang chủ</button></div>
+  <div id="miniBody"></div>
+</div></div>
 
 <script>
 const CFG={
-  API:'https://script.google.com/macros/s/AKfycbxWjJjYsgyLci4teWEdzp7SocLfpO9WnmwErbyq1-ZB2NYurcVftXgE0WjvTR2WLhh15A/exec',
+API:'https://script.google.com/macros/s/AKfycbxWjJjYsgyLci4teWEdzp7SocLfpO9WnmwErbyq1-ZB2NYurcVftXgE0WjvTR2WLhh15A/exec',
   ARMOR:.12, CRIT:.08, MAX_FRIENDS:20,
   FISH_CATCH:.7, FISH_CATCH_MAX:.6,
   NET_MULT:.05, NET_CD:40000,
@@ -469,26 +323,12 @@ let GAMES={fish:true,bc:true,door:true,lock:true,wheel:true};
 const WHEEL_LABELS=['Trượt','Hoàn 50%','Hoàn vốn','x2','x3','x5','x10'];
 const WHEEL_MULT=[0,0.5,1,2,3,5,10];
 const START_WALLET_CLIENT=100000;
-
 const $=id=>document.getElementById(id);
 const fmt=n=>Math.floor(Number(n)||0).toLocaleString('en-US');
-const fmtShort=n=>{
-  n=Math.floor(Number(n)||0);
-  if(n>=1e12)return (n/1e12).toLocaleString('en-US',{maximumFractionDigits:1})+' nghìn tỉ';
-  if(n>=1e9)return (n/1e9).toLocaleString('en-US',{maximumFractionDigits:1})+' tỉ';
-  if(n>=1e6)return (n/1e6).toLocaleString('en-US',{maximumFractionDigits:1})+' triệu';
-  return fmt(n);
-};
 const betLabel=b=>b>=1e9?(b/1e9)+' tỉ':fmt(b);
 const rnd=(a,b)=>Math.floor(a+Math.random()*(b-a+1));
 const todayStr=()=>new Date().toDateString();
-
-function deviceId(){
-  let id=localStorage.getItem('sf_fp');
-  if(!id){id=Math.random().toString(36).slice(2)+Date.now().toString(36);localStorage.setItem('sf_fp',id)}
-  return id;
-}
-
+function deviceId(){let id=localStorage.getItem('sf_fp');if(!id){id=Math.random().toString(36).slice(2)+Date.now().toString(36);localStorage.setItem('sf_fp',id)}return id}
 const ROOMS=[
   {id:'tap',name:'🌊 Tập Bắn',bet:100,need:0,mult:0.6},
   {id:'thuong',name:'🐟 Thường',bet:1000,need:0,mult:0.8},
@@ -499,10 +339,7 @@ const ROOMS=[
 ];
 const roomOf=id=>ROOMS.find(r=>r.id===id)||ROOMS[0];
 const BET_OPTS=[100,1000,10000,50000,100000,1000000];
-
-const AMMOS=[['🔹','Thường',1],['💥','Đạn hạt',2.2],['🔮','Laser',4],['🧊','Băng',5.5],
-             ['⚡','Sét',8],['🌟','Pháo',12],['💠','Siêu',22],['🌈','Thiên hà',40]];
-
+const AMMOS=[['🔹','Thường',1],['💥','Đạn hạt',2.2],['🔮','Laser',4],['🧊','Băng',5.5],['⚡','Sét',8],['🌟','Pháo',12],['💠','Siêu',22],['🌈','Thiên hà',40]];
 const GUNS=[
  {id:'wood',name:'Súng Gỗ',price:10000,mult:1,c1:'#c58a52',c2:'#6b4226',beam:'#ffd9a0'},
  {id:'copper',name:'Súng Đồng',price:50000,mult:1.3,c1:'#f0b070',c2:'#8a4b1c',beam:'#ffb36b'},
@@ -514,137 +351,38 @@ const GUNS=[
  {id:'dragon',name:'Súng Rồng',price:150000000,mult:9,c1:'#4ff09a',c2:'#0b5a33',beam:'#7dffb0'},
  {id:'meteor',name:'Súng Thiên Thạch',price:250000000,mult:12,c1:'#9d82ff',c2:'#2a1659',beam:'#b49bff'},
  {id:'gold',name:'Súng Hoàng Kim',price:350000000,mult:15,c1:'#ffe66b',c2:'#a06b00',beam:'#ffe066'},
- {id:'galaxy',name:'Súng Thiên Hà',price:500000000,mult:22,c1:'#ff9ae0',c2:'#2b0a4a',beam:'#ff8ad8'},
- {id:'vangrong',name:'Súng Vàng Ròng',price:100000,mult:1.2,c1:'#fff3a0',c2:'#c99a00',beam:'#ffe27a'},
- {id:'xanhngoc',name:'Súng Xanh Ngọc',price:1000000,mult:2.5,c1:'#7dffe0',c2:'#0c7a66',beam:'#58ffd0'},
- {id:'tinhthe',name:'Súng Tinh Thể',price:10000000,mult:5,c1:'#e6f7ff',c2:'#4a7fb8',beam:'#b8ecff'},
- {id:'baotoo',name:'Súng Bão Tố',price:100000000,mult:9,c1:'#8fb8ff',c2:'#1a2a6a',beam:'#6fa8ff'},
- {id:'hoalong',name:'Súng Hỏa Long',price:1000000000,mult:14,c1:'#ff8a2a',c2:'#7a1000',beam:'#ff6a1a'},
- {id:'banghа',name:'Súng Băng Hà',price:10000000000,mult:20,c1:'#d6fbff',c2:'#1f5f8f',beam:'#9ef3ff'},
- {id:'thansset',name:'Súng Thần Sét',price:100000000000,mult:30,c1:'#fffb9a',c2:'#4a3a00',beam:'#ffff66'},
- {id:'vutru',name:'Súng Vũ Trụ',price:1000000000000,mult:45,c1:'#c6a6ff',c2:'#140a3a',beam:'#b68bff'},
- {id:'batdiet',name:'Súng Bất Diệt',price:10000000000000,mult:65,c1:'#ffd0f0',c2:'#3a0a2e',beam:'#ff9ee0'},
- {id:'thanthanh',name:'Súng Thần Thánh',price:30000000000000,mult:100,c1:'#ffffff',c2:'#c9a300',beam:'#fff6b0'}
+ {id:'galaxy',name:'Súng Thiên Hà',price:500000000,mult:22,c1:'#ff9ae0',c2:'#2b0a4a',beam:'#ff8ad8'}
 ];
-
 const SHADOW='<ellipse cx="100" cy="122" rx="70" ry="7" fill="#000" opacity=".35"/>';
 const SPARK='<circle cx="150" cy="30" r="3" fill="#fff"/><circle cx="36" cy="44" r="2" fill="#fff"/>';
-
 function fishArt(c1,c2,fin){return `<svg viewBox="0 -12 120 92"><path d="M90 40 L118 16 Q112 40 118 64 Z" fill="${fin}" stroke="#06142e" stroke-width="3"/><ellipse cx="55" cy="40" rx="42" ry="28" fill="${c1}" stroke="#06142e" stroke-width="3"/><ellipse cx="52" cy="52" rx="30" ry="11" fill="${c2}" opacity=".9"/><circle cx="32" cy="36" r="11" fill="#fff" stroke="#06142e" stroke-width="2.5"/><circle cx="29" cy="37" r="6.5" fill="#06142e"/><circle cx="32" cy="33" r="2.5" fill="#fff"/></svg>`}
 function octoArt(c,l){return `<svg viewBox="0 -10 120 110"><g stroke="${c}" stroke-width="10" fill="none" stroke-linecap="round"><path d="M32 60 Q18 84 30 100"/><path d="M48 66 Q42 92 54 104"/><path d="M68 66 Q74 92 62 104"/><path d="M88 60 Q102 84 90 100"/></g><ellipse cx="60" cy="38" rx="42" ry="34" fill="${c}" stroke="#06142e" stroke-width="3"/><ellipse cx="50" cy="20" rx="20" ry="8" fill="${l}" opacity=".7"/><circle cx="44" cy="38" r="12" fill="#fff" stroke="#06142e" stroke-width="2.5"/><circle cx="46" cy="40" r="6.5" fill="#06142e"/><circle cx="76" cy="38" r="12" fill="#fff" stroke="#06142e" stroke-width="2.5"/><circle cx="78" cy="40" r="6.5" fill="#06142e"/></svg>`}
-
 function gunSvg(g){
   const t=GUNS.findIndex(x=>x.id===g.id),id='g'+g.id;
   let deco='';
   if(t>=3)deco+=`<path d="M40 70 L14 50 L22 80 Z" fill="${g.c1}" stroke="#06142e" stroke-width="2"/><path d="M80 70 L106 50 L98 80 Z" fill="${g.c1}" stroke="#06142e" stroke-width="2"/>`;
   if(t>=7)deco+=`<circle cx="16" cy="88" r="7" fill="${g.beam}" stroke="#fff" stroke-width="1.5"/><circle cx="104" cy="88" r="7" fill="${g.beam}" stroke="#fff" stroke-width="1.5"/>`;
-  if(t>=11)deco+=`<path d="M30 40 L8 30 L16 50 Z M90 40 L112 30 L104 50 Z" fill="${g.beam}" stroke="#06142e" stroke-width="2" opacity=".9"/>`;
-  if(t>=14)deco+=`<circle cx="60" cy="8" r="6" fill="${g.beam}" stroke="#fff" stroke-width="1.5"/>`;
   const flame=t>=4?`<path d="M48 26 Q60 2 72 26 Q60 16 48 26Z" fill="url(#fl${id})"/>`:'';
   const aura=t>=9?`<circle cx="60" cy="62" r="56" fill="${g.beam}" opacity=".15"/><circle cx="60" cy="62" r="54" fill="none" stroke="${g.beam}" stroke-width="2" stroke-dasharray="6 6" opacity=".7"/>`:'';
-  const crown=t>=18?`<path d="M36 22 L44 4 L52 18 L60 0 L68 18 L76 4 L84 22 Z" fill="#ffe066" stroke="#06142e" stroke-width="2"/>`:'';
   return `<svg viewBox="0 0 120 120"><defs>
     <linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${g.c1}"/><stop offset="1" stop-color="${g.c2}"/></linearGradient>
     <linearGradient id="fl${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6a0"/><stop offset="1" stop-color="#ff7a1a"/></linearGradient>
     <radialGradient id="mz${id}"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="${g.beam}"/><stop offset="1" stop-color="${g.beam}" stop-opacity="0"/></radialGradient>
-  </defs>
-  ${aura}
-  <ellipse cx="60" cy="104" rx="34" ry="12" fill="${g.c2}" stroke="#06142e" stroke-width="3"/>
-  ${deco}
+  </defs>${aura}<ellipse cx="60" cy="104" rx="34" ry="12" fill="${g.c2}" stroke="#06142e" stroke-width="3"/>${deco}
   <rect x="44" y="60" width="32" height="38" rx="10" fill="url(#${id})" stroke="#06142e" stroke-width="3"/>
   <rect x="50" y="26" width="20" height="42" rx="9" fill="url(#${id})" stroke="#06142e" stroke-width="3"/>
-  <rect x="48" y="38" width="24" height="5" rx="2" fill="${g.beam}" opacity=".85"/>
+<rect x="48" y="38" width="24" height="5" rx="2" fill="${g.beam}" opacity=".85"/>
   <rect x="48" y="54" width="24" height="5" rx="2" fill="${g.beam}" opacity=".85"/>
-  ${flame}
-  ${crown}
-  <circle cx="60" cy="26" r="16" fill="url(#mz${id})"/>
-  <ellipse cx="60" cy="26" rx="8" ry="5" fill="#06142e"/>
-  <circle cx="60" cy="78" r="5" fill="${g.beam}" stroke="#fff" stroke-width="1.5"/>
-  </svg>`;
+  ${flame}<circle cx="60" cy="26" r="16" fill="url(#mz${id})"/><ellipse cx="60" cy="26" rx="8" ry="5" fill="#06142e"/>
+  <circle cx="60" cy="78" r="5" fill="${g.beam}" stroke="#fff" stroke-width="1.5"/></svg>`;
 }
-
 const BOSSES=[
- {name:'CÁ RỒNG BĂNG',lv:5,hp:2e6,reward:8e5,svg:()=>`<svg viewBox="0 0 200 130">
-  <defs>
-    <linearGradient id="b1body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4feff"/><stop offset=".45" stop-color="#8fe9ff"/><stop offset="1" stop-color="#1f6fd6"/></linearGradient>
-    <linearGradient id="b1fin" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2a9fff"/><stop offset="1" stop-color="#bff7ff"/></linearGradient>
-  </defs>
-  ${SHADOW}
-  <path d="M158 65 L196 26 Q186 65 196 104 Z" fill="url(#b1fin)" stroke="#06142e" stroke-width="4" stroke-linejoin="round"/>
-  <path d="M18 65 Q36 14 108 18 Q164 24 164 65 Q164 106 108 112 Q36 116 18 65 Z" fill="url(#b1body)" stroke="#06142e" stroke-width="5"/>
-  <path d="M60 36 Q98 22 138 38" stroke="#fff" stroke-width="7" fill="none" opacity=".75" stroke-linecap="round"/>
-  <path d="M50 96 Q96 112 140 94" stroke="#1f6fd6" stroke-width="5" fill="none" opacity=".45" stroke-linecap="round"/>
-  <path d="M96 22 L104 6 L112 22" fill="#bff7ff" stroke="#06142e" stroke-width="3"/>
-  <ellipse cx="62" cy="58" rx="18" ry="22" fill="#fff" stroke="#06142e" stroke-width="4"/>
-  <ellipse cx="66" cy="62" rx="11" ry="14" fill="#06142e"/>
-  <circle cx="71" cy="54" r="5" fill="#fff"/><circle cx="61" cy="70" r="2" fill="#7fe3ff"/>
-  <path d="M42 56 Q34 64 42 74" stroke="#06142e" stroke-width="3" fill="none" stroke-linecap="round"/>
-  ${SPARK}
- </svg>`},
- {name:'BẠCH TUỘC TÍM',lv:10,hp:6e6,reward:25e5,svg:()=>`<svg viewBox="0 0 200 150">
-  <defs><radialGradient id="b2body" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#e7d4ff"/><stop offset=".6" stop-color="#a76bff"/><stop offset="1" stop-color="#5a2fb3"/></radialGradient></defs>
-  ${SHADOW}
-  <g stroke="#a76bff" stroke-width="13" fill="none" stroke-linecap="round">
-    <path d="M60 96 Q24 120 40 142"/><path d="M80 104 Q70 134 88 146"/><path d="M118 104 Q128 134 112 146"/><path d="M140 96 Q176 120 160 142"/>
-  </g>
-  <path d="M30 62 Q34 12 100 10 Q166 12 170 62 Q168 100 100 104 Q32 100 30 62 Z" fill="url(#b2body)" stroke="#06142e" stroke-width="5"/>
-  <path d="M62 30 Q100 16 138 30" stroke="#fff" stroke-width="6" fill="none" opacity=".6" stroke-linecap="round"/>
-  <ellipse cx="72" cy="66" rx="19" ry="23" fill="#fff" stroke="#06142e" stroke-width="4"/>
-  <ellipse cx="76" cy="70" rx="11" ry="14" fill="#06142e"/><circle cx="81" cy="62" r="5" fill="#fff"/>
-  <ellipse cx="128" cy="66" rx="19" ry="23" fill="#fff" stroke="#06142e" stroke-width="4"/>
-  <ellipse cx="132" cy="70" rx="11" ry="14" fill="#06142e"/><circle cx="137" cy="62" r="5" fill="#fff"/>
-  <path d="M88 84 Q100 92 112 84" stroke="#06142e" stroke-width="3" fill="none" stroke-linecap="round"/>
-  ${SPARK}
- </svg>`},
- {name:'CÁ MẬP LỬA',lv:15,hp:15e6,reward:6e6,svg:()=>`<svg viewBox="0 0 200 130">
-  <defs>
-    <linearGradient id="b3body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe08a"/><stop offset=".5" stop-color="#ff7a3c"/><stop offset="1" stop-color="#8a1c0c"/></linearGradient>
-    <linearGradient id="b3fin" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff3b1f"/><stop offset="1" stop-color="#ffd27a"/></linearGradient>
-  </defs>
-  ${SHADOW}
-  <path d="M156 62 L198 22 Q188 62 198 102 Z" fill="url(#b3fin)" stroke="#06142e" stroke-width="4" stroke-linejoin="round"/>
-  <path d="M16 64 Q34 10 112 14 Q168 22 166 64 Q166 108 112 116 Q34 118 16 64 Z" fill="url(#b3body)" stroke="#06142e" stroke-width="5"/>
-  <path d="M58 30 L70 8 L86 28 L100 4 L114 26 L130 10 L140 32" fill="#ffb020" stroke="#06142e" stroke-width="3" stroke-linejoin="round"/>
-  <path d="M40 92 Q96 110 150 92" stroke="#ffe08a" stroke-width="5" fill="none" opacity=".5" stroke-linecap="round"/>
-  <ellipse cx="60" cy="60" rx="18" ry="22" fill="#fff" stroke="#06142e" stroke-width="4"/>
-  <ellipse cx="64" cy="64" rx="11" ry="14" fill="#06142e"/><circle cx="69" cy="56" r="5" fill="#fff"/>
-  <path d="M40 52 L56 60" stroke="#06142e" stroke-width="4" stroke-linecap="round"/>
-  ${SPARK}
- </svg>`},
- {name:'RÙA THẦN VÀNG',lv:20,hp:4e7,reward:15e6,svg:()=>`<svg viewBox="0 0 200 140">
-  <defs>
-    <radialGradient id="b4shell" cx=".45" cy=".35" r=".7"><stop offset="0" stop-color="#fff6b0"/><stop offset=".6" stop-color="#ffc83a"/><stop offset="1" stop-color="#9a6a00"/></radialGradient>
-  </defs>
-  ${SHADOW}
-  <path d="M170 56 Q196 50 186 70 Q176 84 160 76 Z" fill="#9fe36b" stroke="#06142e" stroke-width="3"/>
-  <path d="M28 102 L12 122 L40 116 Z M80 112 L70 136 L98 124 Z M124 112 L134 136 L150 118 Z" fill="#9fe36b" stroke="#06142e" stroke-width="3"/>
-  <ellipse cx="96" cy="78" rx="72" ry="44" fill="url(#b4shell)" stroke="#06142e" stroke-width="5"/>
-  <path d="M46 70 L96 42 L146 70 L96 102 Z" fill="none" stroke="#9a6a00" stroke-width="3" opacity=".7"/>
-  <path d="M60 52 Q96 36 132 52" stroke="#fff" stroke-width="6" fill="none" opacity=".7" stroke-linecap="round"/>
-  <ellipse cx="174" cy="48" rx="13" ry="14" fill="#fff" stroke="#06142e" stroke-width="3"/>
-  <ellipse cx="177" cy="50" rx="7" ry="8" fill="#06142e"/><circle cx="180" cy="46" r="3" fill="#fff"/>
-  ${SPARK}
- </svg>`},
- {name:'KRAKEN SẤM',lv:30,hp:1e8,reward:4e7,svg:()=>`<svg viewBox="0 0 200 160">
-  <defs>
-    <radialGradient id="b5body" cx=".4" cy=".3" r=".75"><stop offset="0" stop-color="#8f7cff"/><stop offset=".55" stop-color="#2a1f6a"/><stop offset="1" stop-color="#0b0628"/></radialGradient>
-  </defs>
-  ${SHADOW}
-  <g stroke="#2a1f6a" stroke-width="15" fill="none" stroke-linecap="round">
-    <path d="M52 100 Q14 124 26 152"/><path d="M76 110 Q66 144 84 156"/><path d="M124 110 Q134 144 116 156"/><path d="M148 100 Q186 124 174 152"/>
-  </g>
-  <path d="M28 70 Q34 8 100 6 Q166 8 172 70 Q170 106 100 110 Q30 106 28 70 Z" fill="url(#b5body)" stroke="#06142e" stroke-width="5"/>
-  <path d="M60 28 Q100 12 140 28" stroke="#c9bfff" stroke-width="6" fill="none" opacity=".55" stroke-linecap="round"/>
-  <path d="M100 8 L92 -2 M100 8 L108 -2" stroke="#ffe600" stroke-width="3" stroke-linecap="round"/>
-  <ellipse cx="70" cy="66" rx="20" ry="24" fill="#ffe600" stroke="#06142e" stroke-width="4"/>
-  <ellipse cx="74" cy="70" rx="10" ry="16" fill="#06142e"/><circle cx="79" cy="62" r="4" fill="#fff"/>
-  <ellipse cx="130" cy="66" rx="20" ry="24" fill="#ffe600" stroke="#06142e" stroke-width="4"/>
-  <ellipse cx="134" cy="70" rx="10" ry="16" fill="#06142e"/><circle cx="139" cy="62" r="4" fill="#fff"/>
-  <path d="M84 96 Q100 104 116 96" stroke="#ffe600" stroke-width="3" fill="none" stroke-linecap="round"/>
-  ${SPARK}
- </svg>`}
+ {name:'CÁ RỒNG BĂNG',lv:5,hp:2e6,reward:8e5,svg:()=>`<svg viewBox="0 0 200 130"><defs><linearGradient id="b1body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4feff"/><stop offset=".45" stop-color="#8fe9ff"/><stop offset="1" stop-color="#1f6fd6"/></linearGradient><linearGradient id="b1fin" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2a9fff"/><stop offset="1" stop-color="#bff7ff"/></linearGradient></defs>${SHADOW}<path d="M158 65 L196 26 Q186 65 196 104 Z" fill="url(#b1fin)" stroke="#06142e" stroke-width="4"/><path d="M18 65 Q36 14 108 18 Q164 24 164 65 Q164 106 108 112 Q36 116 18 65 Z" fill="url(#b1body)" stroke="#06142e" stroke-width="5"/><path d="M60 36 Q98 22 138 38" stroke="#fff" stroke-width="7" fill="none" opacity=".75"/><path d="M96 22 L104 6 L112 22" fill="#bff7ff" stroke="#06142e" stroke-width="3"/><ellipse cx="62" cy="58" rx="18" ry="22" fill="#fff" stroke="#06142e" stroke-width="4"/><ellipse cx="66" cy="62" rx="11" ry="14" fill="#06142e"/><circle cx="71" cy="54" r="5" fill="#fff"/>${SPARK}</svg>`},
+ {name:'BẠCH TUỘC TÍM',lv:10,hp:6e6,reward:25e5,svg:()=>`<svg viewBox="0 0 200 150"><defs><radialGradient id="b2body" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#e7d4ff"/><stop offset=".6" stop-color="#a76bff"/><stop offset="1" stop-color="#5a2fb3"/></radialGradient></defs>${SHADOW}<g stroke="#a76bff" stroke-width="13" fill="none" stroke-linecap="round"><path d="M60 96 Q24 120 40 142"/><path d="M80 104 Q70 134 88 146"/><path d="M118 104 Q128 134 112 146"/><path d="M140 96 Q176 120 160 142"/></g><path d="M30 62 Q34 12 100 10 Q166 12 170 62 Q168 100 100 104 Q32 100 30 62 Z" fill="url(#b2body)" stroke="#06142e" stroke-width="5"/><ellipse cx="72" cy="66" rx="19" ry="23" fill="#fff" stroke="#06142e" stroke-width="4"/><ellipse cx="76" cy="70" rx="11" ry="14" fill="#06142e"/><circle cx="81" cy="62" r="5" fill="#fff"/><ellipse cx="128" cy="66" rx="19" ry="23" fill="#fff" stroke="#06142e" stroke-width="4"/><ellipse cx="132" cy="70" rx="11" ry="14" fill="#06142e"/><circle cx="137" cy="62" r="5" fill="#fff"/>${SPARK}</svg>`},
+{name:'CÁ MẬP LỬA',lv:15,hp:15e6,reward:6e6,svg:()=>`<svg viewBox="0 0 200 130"><defs><linearGradient id="b3body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe08a"/><stop offset=".5" stop-color="#ff7a3c"/><stop offset="1" stop-color="#8a1c0c"/></linearGradient><linearGradient id="b3fin" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff3b1f"/><stop offset="1" stop-color="#ffd27a"/></linearGradient></defs>${SHADOW}<path d="M156 62 L198 22 Q188 62 198 102 Z" fill="url(#b3fin)" stroke="#06142e" stroke-width="4"/><path d="M16 64 Q34 10 112 14 Q168 22 166 64 Q166 108 112 116 Q34 118 16 64 Z" fill="url(#b3body)" stroke="#06142e" stroke-width="5"/><path d="M58 30 L70 8 L86 28 L100 4 L114 26 L130 10 L140 32" fill="#ffb020" stroke="#06142e" stroke-width="3"/><ellipse cx="60" cy="60" rx="18" ry="22" fill="#fff" stroke="#06142e" stroke-width="4"/><ellipse cx="64" cy="64" rx="11" ry="14" fill="#06142e"/><circle cx="69" cy="56" r="5" fill="#fff"/>${SPARK}</svg>`},
+ {name:'RÙA THẦN VÀNG',lv:20,hp:4e7,reward:15e6,svg:()=>`<svg viewBox="0 0 200 140"><defs><radialGradient id="b4shell" cx=".45" cy=".35" r=".7"><stop offset="0" stop-color="#fff6b0"/><stop offset=".6" stop-color="#ffc83a"/><stop offset="1" stop-color="#9a6a00"/></radialGradient></defs>${SHADOW}<path d="M170 56 Q196 50 186 70 Q176 84 160 76 Z" fill="#9fe36b" stroke="#06142e" stroke-width="3"/><path d="M28 102 L12 122 L40 116 Z M80 112 L70 136 L98 124 Z M124 112 L134 136 L150 118 Z" fill="#9fe36b" stroke="#06142e" stroke-width="3"/><ellipse cx="96" cy="78" rx="72" ry="44" fill="url(#b4shell)" stroke="#06142e" stroke-width="5"/><path d="M46 70 L96 42 L146 70 L96 102 Z" fill="none" stroke="#9a6a00" stroke-width="3" opacity=".7"/><path d="M60 52 Q96 36 132 52" stroke="#fff" stroke-width="6" fill="none" opacity=".7"/><ellipse cx="174" cy="48" rx="13" ry="14" fill="#fff" stroke="#06142e" stroke-width="3"/><ellipse cx="177" cy="50" rx="7" ry="8" fill="#06142e"/><circle cx="180" cy="46" r="3" fill="#fff"/>${SPARK}</svg>`},
+{name:'KRAKEN SẤM',lv:30,hp:1e8,reward:4e7,svg:()=>`<svg viewBox="0 0 200 160"><defs><radialGradient id="b5body" cx=".4" cy=".3" r=".75"><stop offset="0" stop-color="#8f7cff"/><stop offset=".55" stop-color="#2a1f6a"/><stop offset="1" stop-color="#0b0628"/></radialGradient></defs>${SHADOW}<g stroke="#2a1f6a" stroke-width="15" fill="none" stroke-linecap="round"><path d="M52 100 Q14 124 26 152"/><path d="M76 110 Q66 144 84 156"/><path d="M124 110 Q134 144 116 156"/><path d="M148 100 Q186 124 174 152"/></g><path d="M28 70 Q34 8 100 6 Q166 8 172 70 Q170 106 100 110 Q30 106 28 70 Z" fill="url(#b5body)" stroke="#06142e" stroke-width="5"/><ellipse cx="70" cy="66" rx="20" ry="24" fill="#ffe600" stroke="#06142e" stroke-width="4"/><ellipse cx="74" cy="70" rx="10" ry="16" fill="#06142e"/><circle cx="79" cy="62" r="4" fill="#fff"/><ellipse cx="130" cy="66" rx="20" ry="24" fill="#ffe600" stroke="#06142e" stroke-width="4"/><ellipse cx="134" cy="70" rx="10" ry="16" fill="#06142e"/><circle cx="139" cy="62" r="4" fill="#fff"/>${SPARK}</svg>`}
 ];
-
 const FISH=[
  {m:2,w:.3,svg:fishArt('#ffb14a','#fff3d6','#ff7a2f')},
  {m:3,w:.25,svg:fishArt('#58e6ff','#e8fdff','#1aa6ff')},
@@ -671,1066 +409,165 @@ const BOTF=['🦈','🐙','🧜','🐲','🐡','🐳','🐬','🦑','🐢','🦀
 const BC=[['bau','🎃','Bầu'],['cua','🦀','Cua'],['tom','🦐','Tôm'],['ca','🐟','Cá'],['ga','🐓','Gà'],['nai','🦌','Nai']];
 const WHEEL_BETS=[1e4,1e5,1e6,1e7,1e8,1e9,1e10,1e11];
 const HORSES=['Ngựa Trắng','Ngựa Đen','Ngựa Vàng','Ngựa Xanh','Ngựa Hồng','Ngựa Tím'];
-
-let user=null, pass='', role='player', S=null, base=0, since=0;
-let chain=Promise.resolve(), saveT=null, timersStarted=false;
-let EVENT=null, lastAnn=0;
-let fishes=[], autoT=null, bossRespawn=null;
+let user=null,pass='',role='player',S=null,base=0,since=0;
+let chain=Promise.resolve(),saveT=null,timersStarted=false;
+let EVENT=null,lastAnn=0;
+let fishes=[],autoT=null,bossRespawn=null;
 let B={alive:false,hp:0,max:0,enraged:false};
-let doorBusy=false, lockRAF=null, lockT0=0, lockP=.5, mkSel='VCB';
-let wheelBet=1e4, wheelBusy=false;
-let bcState=null, bcLoopT=null, bcLastPoll=0, bcShownId=null, bcErr='';
+let doorBusy=false,lockRAF=null,lockT0=0,lockP=.5,mkSel='VCB';
+let wheelBet=1e4,wheelBusy=false;
+let bcState=null,bcLoopT=null,bcLastPoll=0,bcShownId=null,bcErr='';
 let horseRunning=false;
-
-function newState(){
-  return{
-    wallet:START_WALLET_CLIENT, hold:{}, power:1, txs:[], inv:{common:0,rare:0,gold:0}, buff:null,
-    daily:null, totals:{kills:0,fish:0,shots:0}, friends:[], owned:{wood:true}, gunId:'wood',
-    room:'tap', prog:{}, ammo:0, netCD:0, bombCD:0, stocks:null
-  };
-}
+function newState(){return{wallet:START_WALLET_CLIENT,hold:{},power:1,txs:[],inv:{common:0,rare:0,gold:0},buff:null,daily:null,totals:{kills:0,fish:0,shots:0},friends:[],owned:{wood:true},gunId:'wood',room:'tap',prog:{},ammo:0,netCD:0,bombCD:0,stocks:null}}
 const gun=()=>GUNS.find(g=>g.id===S.gunId)||GUNS[0];
 const stateOnly=()=>{const c={...S};delete c.wallet;return c};
 const holdingsValue=()=>Object.entries(S.hold).reduce((s,[k,q])=>{const st=S.stocks.find(x=>x.s===k);return s+(st?q*st.p:0)},0);
 const score=()=>Math.round(S.wallet+holdingsValue());
 const evtMult=()=>EVENT&&EVENT.until>Date.now()?EVENT.mult:1;
-function P(){
-  if(!S.prog)S.prog={};
-  if(!S.prog[S.room])S.prog[S.room]={idx:0,loop:0};
-  return S.prog[S.room];
-}
-
+function P(){if(!S.prog)S.prog={};if(!S.prog[S.room])S.prog[S.room]={idx:0,loop:0};return S.prog[S.room]}
 function notify(t){const n=$('notice');n.textContent=t;n.classList.remove('hidden');clearTimeout(n._t);n._t=setTimeout(()=>n.classList.add('hidden'),2400)}
 function showBanner(t){const b=$('annBar');b.textContent='📢 '+t;b.classList.remove('hidden');clearTimeout(b._t);b._t=setTimeout(()=>b.classList.add('hidden'),20000)}
-function renderEvt(){
-  const on=EVENT&&EVENT.until>Date.now();
-  $('evtBadge').classList.toggle('hidden',!on);
-  if(on)$('evtBadge').textContent='🔥 '+EVENT.name+' x'+EVENT.mult+' • còn '+Math.ceil((EVENT.until-Date.now())/60000)+' phút';
-}
+function renderEvt(){const on=EVENT&&EVENT.until>Date.now();$('evtBadge').classList.toggle('hidden',!on);if(on)$('evtBadge').textContent='🔥 '+EVENT.name+' x'+EVENT.mult}
 function addFeed(t){const d=document.createElement('div');d.textContent=new Date().toLocaleTimeString()+' — '+t;$('feed').prepend(d);while($('feed').children.length>25)$('feed').lastChild.remove()}
 function txPush(type,sym,qty,price,total){S.txs.unshift({t:new Date().toLocaleTimeString(),type,sym,qty,price,total});S.txs=S.txs.slice(0,30)}
 function ensureDaily(){if(!S.daily||S.daily.date!==todayStr())S.daily={date:todayStr(),shots:0,fish:0,dmg:0,kills:0,claimed:{}}}
-function applyCfg(c){
-  if(!c)return;
-  CFG.ARMOR=c.armor;CFG.FISH_CATCH=c.fishCatch;CFG.FISH_CATCH_MAX=c.fishMax;
-  GAMES=c.games;
-}
-
+function applyCfg(c){if(!c)return;CFG.ARMOR=c.armor;CFG.FISH_CATCH=c.fishCatch;CFG.FISH_CATCH_MAX=c.fishMax;GAMES=c.games}
 let lastBtn=null,lastClickAt=0;
-document.addEventListener('click',e=>{
-  const b=e.target.closest?e.target.closest('button'):null;
-  if(b){lastBtn=b;lastClickAt=Date.now()}
-},true);
+document.addEventListener('click',e=>{const b=e.target.closest?e.target.closest('button'):null;if(b){lastBtn=b;lastClickAt=Date.now()}},true);
+async function api(body){const btn=lastBtn;const wantSpin=btn&&Date.now()-lastClickAt<4000;let sp=null;if(wantSpin&&!btn.querySelector('.spin')){sp=document.createElement('span');sp.className='spin';btn.appendChild(sp);btn.classList.add('busy')}try{return await apiRaw(body)}finally{if(sp){sp.remove();btn.classList.remove('busy')}}}
+async function apiRaw(body){let r;try{r=await fetch(CFG.API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(body)})}catch(e){throw new Error('Không kết nối được máy chủ. Kiểm tra CFG.API')}let j;try{j=await r.json()}catch(e){throw new Error('Máy chủ trả về sai định dạng. Kiểm tra quyền truy cập web app')}if(!j.ok){const e=new Error(j.error||'Lỗi máy chủ');e.code=j.code;throw e}return j}
 
-async function api(body){
-  const btn=lastBtn;
-  const wantSpin=btn&&Date.now()-lastClickAt<4000&&(body.op||['login','register'].indexOf(body.action)>=0);
-  let sp=null;
-  if(wantSpin&&!btn.querySelector('.spin')){
-    sp=document.createElement('span');sp.className='spin';
-    btn.appendChild(sp);btn.classList.add('busy');
-  }
-  try{return await apiRaw(body)}
-  finally{if(sp){sp.remove();btn.classList.remove('busy')}}
-}
-async function apiRaw(body){
-  let r;
-  try{r=await fetch(CFG.API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(body)})}
-  catch(e){throw new Error('Không kết nối được máy chủ. Kiểm tra CFG.API')}
-  let j;
-  try{j=await r.json()}catch(e){throw new Error('Máy chủ trả về sai định dạng. Kiểm tra quyền truy cập web app')}
-  if(!j.ok){const e=new Error(j.error||'Lỗi máy chủ');e.code=j.code;throw e}
-  return j;
-}
 
-function sync(op,data){
-  const run=async()=>{
-    if(!user||!S)return null;
-    const sentW=Math.floor(S.wallet), sentB=base;
-    try{
-      const j=await apiRaw({action:'sync',name:user,pass,since,wallet:sentW,base:sentB,
-                         state:stateOnly(),score:score(),op,data,fp:deviceId()});
-      S.wallet=j.wallet+(S.wallet-sentW);
-      base=j.wallet;
-      if(j.buff)S.buff=j.buff;
-      EVENT=j.event||null;
-      applyCfg(j.cfg);
-      if(j.bc&&!$('bcView').classList.contains('hidden')){
-        bcState=Object.assign({},j.bc,{recv:Date.now()});bcErr='';renderBC();
-      }
-      if(j.announce&&j.announce.id!==lastAnn){lastAnn=j.announce.id;showBanner(j.announce.text)}
-      if(!op&&j.wallet!==sentW){
-        const d=j.wallet-sentW;
-        notify('🛠️ Số dư được quản trị cập nhật: '+(d>0?'+':'')+fmt(d)+' xu');
-      }
-      renderWallet();renderEvt();
-      return j;
-    }catch(e){
-      if(['locked','kick','maint','devban'].indexOf(e.code)>=0){notify(e.message);endSession();return null}
-      if(e.code==='auth'){notify('Phiên đăng nhập không còn hợp lệ: '+e.message);endSession();return null}
-      if(op)notify(e.message);
-      return null;
-    }
-  };
-  chain=chain.then(run,run);
-  return chain;
-}
+
+function sync(op,data){const run=async()=>{if(!user||!S)return null;const sentW=Math.floor(S.wallet),sentB=base;try{const j=await apiRaw({action:'sync',name:user,pass,since,wallet:sentW,base:sentB,state:stateOnly(),score:score(),op,data,fp:deviceId()});S.wallet=j.wallet+(S.wallet-sentW);base=j.wallet;if(j.buff)S.buff=j.buff;EVENT=j.event||null;applyCfg(j.cfg);if(j.announce&&j.announce.id!==lastAnn){lastAnn=j.announce.id;showBanner(j.announce.text)}renderWallet();renderEvt();return j}catch(e){if(e.code==='auth'){notify('Phiên đăng nhập hết hạn: '+e.message);endSession();return null}if(op)notify(e.message);return null}};chain=chain.then(run,run);return chain}
 function saveUser(){if(!user)return;clearTimeout(saveT);saveT=setTimeout(()=>sync(),800)}
-
 function showRegister(){$('loginForm').classList.add('hidden');$('registerForm').classList.remove('hidden')}
 function showLogin(){$('registerForm').classList.add('hidden');$('loginForm').classList.remove('hidden')}
-
-async function login(){
-  const name=$('loginName').value.trim(),p=$('loginPass').value;
-  if(!name||!p)return notify('Nhập tên và mật khẩu.');
-  try{
-    const j=await api({action:'login',name,pass:p,fp:deviceId()});
-    applyCfg(j.cfg);
-    startSession(name,p,j.role,j.wallet,j.state);
-    notify('Chào mừng '+name+'!');
-  }catch(e){notify(e.message)}
-}
-async function register(){
-  const n=$('regName').value.trim(),p=$('regPass').value,p2=$('regPass2').value;
-  if(p!==p2)return notify('Mật khẩu nhập lại không khớp.');
-  try{
-    const j=await api({action:'register',name:n,pass:p,fp:deviceId()});
-    applyCfg(j.cfg);
-    startSession(n,p,'player',j.wallet,{});
-    notify('Đăng ký xong! Bạn có 100.000 xu.');
-  }catch(e){notify(e.message)}
-}
-
-function startSession(name,p,r,w,st){
-  user=name;pass=p;role=r;since=Date.now();
-  S=Object.assign(newState(),st||{});
-  S.wallet=w;base=w;
-  if(!S.prog)S.prog={};
-  if(!ROOMS.some(x=>x.id===S.room))S.room='tap';
-  S.stocks=(Array.isArray(S.stocks)&&S.stocks.length?S.stocks:DEF_STOCKS.map(s=>({...s,prev:s.p,hist:[s.p]})));
-  S.stocks.forEach(s=>{if(!s.hist||!s.hist.length)s.hist=[s.p];if(!s.prev)s.prev=s.p});
-  ensureDaily();
-  enterGame();
-}
-
-async function logout(){
-  stopAuto();stopLock();closeBC();
-  await sync();
-  endSession();
-}
-function endSession(){
-  stopAuto();stopLock();clearTimeout(saveT);closeBC();
-  user=null;pass='';role='player';S=null;base=0;EVENT=null;bcState=null;
-  clearAll();
-  document.querySelectorAll('.over').forEach(e=>e.classList.add('hidden'));
-  $('gameScreen').classList.add('hidden');$('homeScreen').classList.add('hidden');
-  $('authScreen').classList.remove('hidden');
-  showDevId();
-}
-
-function enterGame(){
-  $('authScreen').classList.add('hidden');
-  showHome();
-  if(!timersStarted){
-    timersStarted=true;
-    setInterval(()=>{if(user)sync()},CFG.SYNC_MS);
-    setInterval(tickMarket,1500);
-    setInterval(fishLoop,1800);
-    setInterval(bossCharge,6000);
-    setInterval(renderSkills,1000);
-    setInterval(()=>{if(!user||!S)return;ensureDaily();renderQuests();renderBuff();renderEvt()},5000);
-    setInterval(loadBoard,15000);
-    window.addEventListener('pagehide',flushBeacon);
-  }
-  renderAll();loadBoard();
-}
-function showHome(){
-  stopAuto();stopLock();closeBC();
-  document.querySelectorAll('.over').forEach(e=>e.classList.add('hidden'));
-  $('gameScreen').classList.add('hidden');
-  $('authScreen').classList.add('hidden');
-  $('homeScreen').classList.remove('hidden');
-  clearAll();
-  renderWallet();
-}
-function goGame(g){
-  $('homeScreen').classList.add('hidden');
-  if(g==='fish'){
-    $('gameScreen').classList.remove('hidden');
-    clearAll();spawnBoss();
-    for(let i=0;i<10;i++)spawnFish();
-    renderAll();
-    return;
-  }
-  if(g==='bc')return openBC();
-  if(g==='wheel')return openWheel();
-  if(g==='horse')return openHorse();
-  if(g==='door'){openGames();return gameTab('door')}
-  if(g==='lock'){openGames();return gameTab('lock')}
-  if(g==='market')return openMarket();
-  if(g==='shop')return openShop();
-}
-function backHome(viewId){$(viewId).classList.add('hidden');showHome()}
-
-function flushBeacon(){
-  if(!user||!S)return;
-  const body=JSON.stringify({action:'sync',name:user,pass,since,wallet:Math.floor(S.wallet),base,state:stateOnly(),score:score(),fp:deviceId()});
-  try{fetch(CFG.API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body,keepalive:true})}catch(e){}
-}
-function clearAll(){
-  document.querySelectorAll('#arena .fish').forEach(e=>e.remove());fishes=[];
-  clearTimeout(bossRespawn);B.alive=false;$('boss').style.display='none';
-}
-function renderAll(){
-  renderWallet();renderAmmo();applyGun();renderBossBar();renderQuests();
-  renderInv();renderSkills();renderFriends();renderStocks();renderBuff();renderEvt();
-  renderBetOpts();renderRoomLabel();
-}
+async function login(){const name=$('loginName').value.trim(),p=$('loginPass').value;if(!name||!p)return notify('Nhập tên và mật khẩu.');try{const j=await api({action:'login',name,pass:p,fp:deviceId()});applyCfg(j.cfg);startSession(name,p,j.role,j.wallet,j.state);notify('Chào mừng '+name+'!')}catch(e){notify(e.message)}}
+async function register(){const n=$('regName').value.trim(),p=$('regPass').value,p2=$('regPass2').value;if(p!==p2)return notify('Mật khẩu nhập lại không khớp.');try{const j=await api({action:'register',name:n,pass:p,fp:deviceId()});applyCfg(j.cfg);startSession(n,p,'player',j.wallet,{});notify('Đăng ký xong! Bạn có 100.000 xu.')}catch(e){notify(e.message)}}
+function startSession(name,p,r,w,st){user=name;pass=p;role=r;since=Date.now();S=Object.assign(newState(),st||{});S.wallet=w;base=w;if(!S.prog)S.prog={};if(!ROOMS.some(x=>x.id===S.room))S.room='tap';S.stocks=(Array.isArray(S.stocks)&&S.stocks.length?S.stocks:DEF_STOCKS.map(s=>({...s,prev:s.p,hist:[s.p]})));S.stocks.forEach(s=>{if(!s.hist||!s.hist.length)s.hist=[s.p];if(!s.prev)s.prev=s.p});ensureDaily();enterGame()}
+async function logout(){stopAuto();stopLock();closeBC();await sync();endSession()}
+function endSession(){stopAuto();stopLock();clearTimeout(saveT);closeBC();user=null;pass='';role='player';S=null;base=0;EVENT=null;bcState=null;clearAll();document.querySelectorAll('.over').forEach(e=>e.classList.add('hidden'));$('gameScreen').classList.add('hidden');$('homeScreen').classList.add('hidden');$('authScreen').classList.remove('hidden')}
+function enterGame(){$('authScreen').classList.add('hidden');showHome();if(!timersStarted){timersStarted=true;setInterval(()=>{if(user)sync()},CFG.SYNC_MS);setInterval(tickMarket,1500);setInterval(fishLoop,1800);setInterval(bossCharge,6000);setInterval(renderSkills,1000);setInterval(()=>{if(!user||!S)return;ensureDaily();renderQuests();renderBuff();renderEvt()},5000);window.addEventListener('pagehide',flushBeacon)}renderAll();loadBoard()}
+function showHome(){stopAuto();stopLock();closeBC();document.querySelectorAll('.over').forEach(e=>e.classList.add('hidden'));$('gameScreen').classList.add('hidden');$('authScreen').classList.add('hidden');$('homeScreen').classList.remove('hidden');clearAll();renderWallet()}
+function goGame(g){$('homeScreen').classList.add('hidden');if(g==='fish'){$('gameScreen').classList.remove('hidden');clearAll();spawnBoss();for(let i=0;i<10;i++)spawnFish();renderAll();return}if(g==='bc')return openBC();if(g==='wheel')return openWheel();if(g==='horse')return openHorse();if(g==='door'){openGames();return gameTab('door')}if(g==='lock'){openGames();return gameTab('lock')}if(g==='market')return openMarket();if(g==='shop')return openShop()}
+function backHome(v){$(v).classList.add('hidden');showHome()}
+function flushBeacon(){if(!user||!S)return;const body=JSON.stringify({action:'sync',name:user,pass,since,wallet:Math.floor(S.wallet),base,state:stateOnly(),score:score(),fp:deviceId()});try{fetch(CFG.API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body,keepalive:true})}catch(e){}}
+function clearAll(){document.querySelectorAll('#arena .fish').forEach(e=>e.remove());fishes=[];clearTimeout(bossRespawn);B.alive=false;$('boss').style.display='none'}
+function renderAll(){renderWallet();renderAmmo();applyGun();renderBossBar();renderQuests();renderInv();renderSkills();renderFriends();renderStocks();renderBuff();renderEvt();renderBetOpts();renderRoomLabel()}
 function renderRoomLabel(){$('playerLabel').textContent='👤 '+user+' • '+roomOf(S.room).name}
-function renderBetOpts(){
-  const rm=roomOf(S.room);
-  const cur=Number($('bet').value)||rm.bet;
-  const opts=BET_OPTS.filter(v=>v>=rm.bet);
-  $('bet').innerHTML=opts.map(v=>`<option value="${v}">${fmt(v)}</option>`).join('');
-  $('bet').value=opts.includes(cur)?cur:rm.bet;
-}
-function renderWallet(){
-  if(!S)return;
-  $('wallet').textContent=fmt(S.wallet);
-  ['homeWallet','shopWallet','gameWallet','marketWallet','bcWallet','wheelWallet','horseWallet','miniWallet'].forEach(id=>{const el=$(id);if(el)el.textContent=fmt(S.wallet)});
-}
-function renderAmmo(){
-  $('ammoList').innerHTML=AMMOS.map((a,i)=>`<div class="ammo ${i===S.ammo?'on':''}" onclick="S.ammo=${i};renderAmmo();saveUser()"><i>${a[0]}</i>${a[1]}<br><small>x${a[2]}</small></div>`).join('');
-}
+function renderBetOpts(){const rm=roomOf(S.room);const cur=Number($('bet').value)||rm.bet;const opts=BET_OPTS.filter(v=>v>=rm.bet);$('bet').innerHTML=opts.map(v=>`<option value="${v}">${fmt(v)}</option>`).join('');$('bet').value=opts.includes(cur)?cur:rm.bet}
+function renderWallet(){if(!S)return;$('wallet').textContent=fmt(S.wallet);['homeWallet','shopWallet','gameWallet','marketWallet','bcWallet','wheelWallet','horseWallet','miniWallet'].forEach(id=>{const el=$(id);if(el)el.textContent=fmt(S.wallet)})}
+function renderAmmo(){$('ammoList').innerHTML=AMMOS.map((a,i)=>`<div class="ammo ${i===S.ammo?'on':''}" onclick="S.ammo=${i};renderAmmo();saveUser()"><i>${a[0]}</i>${a[1]}<br><small>x${a[2]}</small></div>`).join('')}
 function applyGun(){$('cannon').innerHTML=gunSvg(gun());$('gunName').textContent='🔫 '+gun().name+' x'+gun().mult}
-
-function showDevId(){
-  const box=$('devIdBox');
-  if(box)box.value=deviceId();
-}
-function copyDevId(){
-  const v=deviceId();
-  if(navigator.clipboard&&navigator.clipboard.writeText){
-    navigator.clipboard.writeText(v).then(()=>notify('📋 Đã sao chép mã thiết bị')).catch(()=>fallbackCopy(v));
-  }else fallbackCopy(v);
-}
-function fallbackCopy(v){
-  const box=$('devIdBox');
-  box.removeAttribute('readonly');box.select();
-  try{document.execCommand('copy');notify('📋 Đã sao chép mã thiết bị')}catch(e){notify('Hãy bôi đen và copy thủ công')}
-  box.setAttribute('readonly','');
-}
-
 function openRoom(){if(!user)return;renderRooms();$('roomView').classList.remove('hidden')}
 function closeRoom(){$('roomView').classList.add('hidden')}
-function renderRooms(){
-  $('roomList').innerHTML=ROOMS.map(r=>{
-    const cur=r.id===S.room,ok=S.wallet>=r.need;
-    const bossList=BOSSES.map(b=>b.name).join(' → ');
-    const btn=cur?'<button disabled>✅ Đang ở đây</button>'
-      :ok?`<button onclick="enterRoom('${r.id}')">Vào phòng</button>`
-      :'<button disabled>Chưa đủ xu</button>';
-    return `<div class="rcard ${cur?'cur':''}">
-      <div class="rt">${r.name}</div>
-      <div class="hint">Đạn từ ${fmt(r.bet)} xu • Vào cần ${r.need?fmt(r.need)+' xu':'không cần'}</div>
-      <div class="hint" style="margin:6px 0">Hệ số boss ×${r.mult}</div>
-      <div style="font-size:12px;color:#b5ddf8;margin-bottom:8px">Boss: ${bossList}</div>
-      ${btn}</div>`;
-  }).join('');
-}
-async function enterRoom(id){
-  if(!user||!S)return;
-  if(id===S.room)return closeRoom();
-  const rm=roomOf(id);
-  stopAuto();
-  const j=await sync('enterRoom',{room:id});
-  if(!j)return;
-  S.room=id;
-  clearAll();spawnBoss();
-  for(let i=0;i<10;i++)spawnFish();
-  renderBetOpts();renderRoomLabel();renderRooms();
-  closeRoom();
-  notify('Đã vào '+rm.name);
-  bcState=null;bcShownId=null;
-  if(!$('bcView').classList.contains('hidden'))pollBC();
-  saveUser();
-}
-
-function openWheel(){
-  if(!user)return;
-  if(!GAMES.wheel)return notify('Vòng quay đang tạm tắt.');
-  $('wheelView').classList.remove('hidden');renderWheel();
-}
+function renderRooms(){$('roomList').innerHTML=ROOMS.map(r=>{const cur=r.id===S.room,ok=S.wallet>=r.need;const bossList=BOSSES.map(b=>b.name).join(' → ');const btn=cur?'<button disabled>✅ Đang ở đây</button>':ok?`<button onclick="enterRoom('${r.id}')">Vào phòng</button>`:'<button disabled>Chưa đủ xu</button>';return `<div class="rcard ${cur?'cur':''}"><div class="rt">${r.name}</div><div class="hint">Đạn từ ${fmt(r.bet)} xu • Vào cần ${r.need?fmt(r.need)+' xu':'không cần'}</div><div class="hint" style="margin:6px 0">Hệ số boss ×${r.mult}</div><div style="font-size:12px;color:#b5ddf8;margin-bottom:8px">Boss: ${bossList}</div>${btn}</div>`}).join('')}
+async function enterRoom(id){if(!user||!S)return;if(id===S.room)return closeRoom();stopAuto();const j=await sync('enterRoom',{room:id});if(!j)return;S.room=id;clearAll();spawnBoss();for(let i=0;i<10;i++)spawnFish();renderBetOpts();renderRoomLabel();renderRooms();closeRoom();notify('Đã vào '+roomOf(id).name);bcState=null;bcShownId=null;if(!$('bcView').classList.contains('hidden'))pollBC();saveUser()}
+function openWheel(){if(!user)return;$('wheelView').classList.remove('hidden');renderWheel()}
 function closeWheel(){if(wheelBusy)return;backHome('wheelView')}
-function renderWheel(){
-  if(!S)return;
-  renderWallet();
-  $('wheelBets').innerHTML=WHEEL_BETS.map(b=>`<button class="${b===wheelBet?'gold':''}" onclick="wheelBet=${b};renderWheel()">${betLabel(b)}</button>`).join(' ');
-  $('wheelSegs').innerHTML=WHEEL_LABELS.map((l,i)=>`<div class="seg" id="seg${i}">${l}</div>`).join('');
-  $('wheelBtn').disabled=wheelBusy||S.wallet<wheelBet;
-  const top=WHEEL_MULT[WHEEL_MULT.length-1];
-  $('wheelTable').textContent='Đang chọn '+betLabel(wheelBet)+' xu • Cao nhất x'+top+' nhận '+betLabel(wheelBet*top)+' xu';
-  if(S.wallet<wheelBet)$('wheelRes').textContent='Không đủ xu để quay mệnh giá '+betLabel(wheelBet)+'.';
-}
-async function spinWheel(){
-  if(!user||!S||wheelBusy)return;
-  if(!GAMES.wheel)return notify('Vòng quay đang tạm tắt.');
-  if(wheelBet>S.wallet)return notify('Không đủ xu để quay mệnh giá '+betLabel(wheelBet)+'.');
-  wheelBusy=true;$('wheelBtn').disabled=true;$('wheelRes').textContent='';
-  const segs=[...document.querySelectorAll('#wheelSegs .seg')];
-  let k=0;
-  const tick=setInterval(()=>{
-    segs.forEach(x=>x.classList.remove('on'));
-    segs[k%segs.length].classList.add('on');k++;
-    $('wheelDisp').textContent=['🎡','🎯','💫','✨'][k%4];
-  },90);
-  const j=await sync('spin',{bet:wheelBet});
-  clearInterval(tick);
-  segs.forEach(x=>x.classList.remove('on'));
-  $('wheelDisp').textContent='🎡';
-  wheelBusy=false;
-  renderWheel();
-  if(!j)return;
-  segs[j.seg].classList.add('on');
-  const txt=j.net>0?`🎉 ${j.label}! +${fmt(j.net)} xu`
-          :j.net===0?`😐 ${j.label}: hòa vốn`
-          :`💥 ${j.label}: −${fmt(-j.net)} xu`;
-  $('wheelRes').innerHTML=`<span class="${j.net>=0?'up':'down'}">${txt}</span>`;
-  txPush('Vòng quay',betLabel(j.bet),j.label,'',j.net);
-  addFeed('🎡 Quay '+betLabel(j.bet)+': '+j.label+' ('+(j.net>=0?'+':'−')+fmt(Math.abs(j.net))+')');
-}
-
-function openHorse(){
-  if(!user)return;
-  $('horseView').classList.remove('hidden');
-  $('horsePick').innerHTML=HORSES.map((h,i)=>`<option value="${i}">${h}</option>`).join('');
-  $('horseTrack').innerHTML=HORSES.map((h,i)=>`<div style="position:relative;height:34px;margin:6px 0;background:#071b37;border-radius:10px;overflow:hidden"><div id="hr${i}" style="position:absolute;left:0;top:0;height:100%;width:0;display:flex;align-items:center;justify-content:flex-end;font-size:24px"></div><span style="position:absolute;left:8px;top:8px;font-size:12px;color:#9edcff">${h}</span></div>`).join('');
-  renderWallet();
-}
+function renderWheel(){if(!S)return;renderWallet();$('wheelBets').innerHTML=WHEEL_BETS.map(b=>`<button class="${b===wheelBet?'gold':''}" onclick="wheelBet=${b};renderWheel()">${betLabel(b)}</button>`).join(' ');$('wheelSegs').innerHTML=WHEEL_LABELS.map((l,i)=>`<div class="seg" id="seg${i}">${l}</div>`).join('');$('wheelBtn').disabled=wheelBusy||S.wallet<wheelBet;$('wheelTable').textContent='Đang chọn '+betLabel(wheelBet)+' xu';}
+async function spinWheel(){if(!user||!S||wheelBusy)return;if(wheelBet>S.wallet)return notify('Không đủ xu.');wheelBusy=true;$('wheelBtn').disabled=true;$('wheelRes').textContent='';const segs=[...document.querySelectorAll('#wheelSegs .seg')];let k=0;const tick=setInterval(()=>{segs.forEach(x=>x.classList.remove('on'));segs[k%segs.length].classList.add('on');k++;$('wheelDisp').textContent=['🎡','🎯','💫','✨'][k%4]},90);const j=await sync('spin',{bet:wheelBet});clearInterval(tick);segs.forEach(x=>x.classList.remove('on'));$('wheelDisp').textContent='🎡';wheelBusy=false;renderWheel();if(!j)return;segs[j.seg].classList.add('on');const txt=j.net>0?`🎉 ${j.label}! +${fmt(j.net)} xu`:j.net===0?`😐 ${j.label}: hòa vốn`:`💥 ${j.label}: −${fmt(-j.net)} xu`;$('wheelRes').innerHTML=`<span class="${j.net>=0?'up':'down'}">${txt}</span>`;txPush('Vòng quay',betLabel(j.bet),j.label,'',j.net);addFeed('🎡 Quay '+betLabel(j.bet)+': '+j.label)}
+function openHorse(){if(!user)return;$('horseView').classList.remove('hidden');$('horsePick').innerHTML=HORSES.map((h,i)=>`<option value="${i}">${h}</option>`).join('');$('horseTrack').innerHTML=HORSES.map((h,i)=>`<div style="position:relative;height:34px;margin:6px 0;background:#071b37;border-radius:10px;overflow:hidden"><div id="hr${i}" style="position:absolute;left:0;top:0;height:100%;width:0;display:flex;align-items:center;justify-content:flex-end;font-size:24px"></div><span style="position:absolute;left:8px;top:8px;font-size:12px;color:#9edcff">${h}</span></div>`).join('');renderWallet()}
 function closeHorse(){if(horseRunning)return;backHome('horseView')}
-function startHorse(){
-  if(!user||!S||horseRunning)return;
-  const bet=Number($('horseBet').value),pick=Number($('horsePick').value);
-  if(bet>S.wallet)return notify('Không đủ xu.');
-  horseRunning=true;$('horseGo').disabled=true;$('horseRes').textContent='';
-  S.wallet-=bet;renderWallet();
-  const dist=HORSES.map(()=>85+Math.random()*15);
-  const order=dist.map((d,i)=>({i,d})).sort((a,b)=>b.d-a.d).map(x=>x.i);
-  HORSES.forEach((h,i)=>{
-    const el=$('hr'+i);
-    el.style.transition='none';el.style.width='0';el.textContent='';
-    void el.offsetWidth;
-    el.style.transition='width 3s linear';
-    el.style.width=dist[i]+'%';
-    el.textContent='🐴';
-  });
-  setTimeout(()=>{
-    const rank=order.indexOf(pick);
-    const mult=rank===0?5:rank===1?2:0;
-    const pay=Math.floor(bet*mult),net=pay-bet;
-    S.wallet+=pay;
-    txPush('Đua ngựa',HORSES[pick],'',bet,net);
-    $('horseRes').innerHTML=mult>0
-      ?`<span class="up">🏆 ${HORSES[pick]} về ${rank===0?'NHẤT':'NHÌ'}! +${fmt(net)} xu</span>`
-      :`<span class="down">${HORSES[pick]} về hạng ${rank+1}, mất ${fmt(bet)} xu</span>`;
-    renderWallet();saveUser();
-    horseRunning=false;$('horseGo').disabled=false;
-  },3200);
-}
-
+function startHorse(){if(!user||!S||horseRunning)return;const bet=Number($('horseBet').value),pick=Number($('horsePick').value);if(bet>S.wallet)return notify('Không đủ xu.');horseRunning=true;$('horseGo').disabled=true;$('horseRes').textContent='';S.wallet-=bet;renderWallet();const dist=HORSES.map(()=>85+Math.random()*15);const order=dist.map((d,i)=>({i,d})).sort((a,b)=>b.d-a.d).map(x=>x.i);HORSES.forEach((h,i)=>{const el=$('hr'+i);el.style.transition='none';el.style.width='0';el.textContent='';void el.offsetWidth;el.style.transition='width 3s linear';el.style.width=dist[i]+'%';el.textContent='🐴'});setTimeout(()=>{const rank=order.indexOf(pick);const mult=rank===0?5:rank===1?2:0;const pay=Math.floor(bet*mult),net=pay-bet;S.wallet+=pay;txPush('Đua ngựa',HORSES[pick],'',bet,net);$('horseRes').innerHTML=mult>0?`<span class="up">🏆 ${HORSES[pick]} về ${rank===0?'NHẤT':'NHÌ'}! +${fmt(net)} xu</span>`:`<span class="down">${HORSES[pick]} hạng ${rank+1}, mất ${fmt(bet)} xu</span>`;renderWallet();saveUser();horseRunning=false;$('horseGo').disabled=false},3200)}
 function openShop(){$('shopView').classList.remove('hidden');renderShop()}
 function closeShop(){backHome('shopView')}
-function renderShop(){
-  renderWallet();
-  $('shopGrid').innerHTML=GUNS.map(g=>{
-    const has=!!S.owned[g.id],eq=S.gunId===g.id;
-    let btn;
-    if(eq)btn='<button disabled>✅ Đang dùng</button>';
-    else if(has)btn=`<button onclick="equipGun('${g.id}')">Trang bị</button>`;
-    else btn=`<button ${S.wallet>=g.price?'':'disabled'} onclick="buyGun('${g.id}')">Mua ${fmtShort(g.price)}</button>`;
-    return `<div class="gc ${eq?'eq':''}">${gunSvg(g)}<div><b>${g.name}</b></div><div class="hint">x${g.mult} sát thương boss</div><div class="price">🪙 ${fmtShort(g.price)}</div>${btn}</div>`;
-  }).join('');
-}
-function buyGun(id){
-  const g=GUNS.find(x=>x.id===id);if(!g||S.owned[id])return;
-  if(S.wallet<g.price)return notify('Không đủ xu');
-  S.wallet-=g.price;S.owned[id]=true;S.gunId=id;
-  applyGun();renderWallet();renderShop();saveUser();notify('🔫 Đã mua '+g.name);
-}
+function renderShop(){renderWallet();$('shopGrid').innerHTML=GUNS.map(g=>{const has=!!S.owned[g.id],eq=S.gunId===g.id;let btn;if(eq)btn='<button disabled>✅ Đang dùng</button>';else if(has)btn=`<button onclick="equipGun('${g.id}')">Trang bị</button>`;else btn=`<button ${S.wallet>=g.price?'':'disabled'} onclick="buyGun('${g.id}')">Mua ${fmt(g.price)}</button>`;return `<div class="gc ${eq?'eq':''}">${gunSvg(g)}<div><b>${g.name}</b></div><div class="hint">x${g.mult} sát thương boss</div><div class="price">🪙 ${fmt(g.price)}</div>${btn}</div>`}).join('')}
+function buyGun(id){const g=GUNS.find(x=>x.id===id);if(!g||S.owned[id])return;if(S.wallet<g.price)return notify('Không đủ xu');S.wallet-=g.price;S.owned[id]=true;S.gunId=id;applyGun();renderWallet();renderShop();saveUser();notify('🔫 Đã mua '+g.name)}
 function equipGun(id){if(!S.owned[id])return;S.gunId=id;applyGun();renderShop();saveUser()}
-
-function spawnBoss(){
-  const p=P(),b=BOSSES[p.idx],rm=roomOf(S.room);
-  B.max=Math.round(b.hp*rm.mult*(1+p.loop*.6));B.hp=B.max;B.alive=true;B.enraged=false;
-  const bo=$('boss');
-  const speed=Math.max(6,CFG.BOSS_SPEED[p.idx]-p.loop*2);
-  bo.className='boss '+(Math.random()<.5?'toRight':'toLeft');
-  bo.style.top=(18+Math.random()*40)+'%';
-  bo.style.animationDuration=speed+'s';
-  bo.innerHTML=b.svg();bo.style.display='block';
-  bo.onanimationend=e=>{if(e.target===bo&&e.animationName.indexOf('swim')===0&&B.alive)escapeBoss()};
-  $('arena').classList.remove('rage');
-  $('bossName').textContent=b.name+(p.loop?' ⭐ x'+(p.loop+1):'');
-  $('bossLv').textContent=b.lv;
-  $('status').textContent=rm.name+' • Boss '+(p.idx+1)+'/'+BOSSES.length;
-  renderBossBar();showWarn('🐉 '+b.name+' XUẤT HIỆN!');
-}
-function escapeBoss(){
-  B.alive=false;
-  $('boss').style.display='none';
-  showWarn('🐉 BOSS ĐÃ BƠI THOÁT!');
-  notify('Boss bơi sang bờ bên kia, boss mới sắp xuất hiện');
-  clearTimeout(bossRespawn);
-  bossRespawn=setTimeout(()=>{if(user)spawnBoss()},CFG.BOSS_RESPAWN_MS);
-}
-function renderBossBar(){
-  const pct=B.max?Math.max(0,B.hp/B.max*100):0;
-  $('bossText').textContent=fmt(Math.max(0,B.hp))+' / '+fmt(B.max)+' HP';
-  $('bossHp').style.width=pct+'%';
-}
-function bossHit(e,cost){
-  const a=AMMOS[S.ammo],crit=Math.random()<CFG.CRIT,bm=buffMult('dmg');
-  const raw=cost*a[2]*S.power*gun().mult*CFG.ARMOR*(.75+Math.random()*.65)*(crit?2:1)*bm;
-  const dmg=Math.round(Math.min(raw,B.max*CFG.BOSS_HIT_CAP));
-  applyBossDamage(dmg,e,crit);
-}
-function applyBossDamage(dmg,e,crit){
-  if(!B.alive)return;
-  B.hp-=dmg;S.daily.dmg=(S.daily.dmg||0)+dmg;
-  const bo=$('boss');bo.classList.remove('hit');void bo.offsetWidth;bo.classList.add('hit');
-  if(e)floatText(e,(crit?'CHÍ MẠNG ':'-')+fmt(dmg),crit?'#ff4d6d':'#ffed65');
-  if(crit)showWarn('💥 CHÍ MẠNG!');
-  if(B.hp<=0){killBoss();return}
-  if(!B.enraged&&B.hp/B.max<.35){
-    B.enraged=true;bo.classList.add('rage');$('arena').classList.add('rage');
-    showWarn('😡 NỔI GIẬN!');shake();
-  }
-  renderBossBar();
-}
-function killBoss(){
-  const p=P(),b=BOSSES[p.idx],rm=roomOf(S.room);
-  const r=Math.round(b.reward*rm.mult*(1+p.loop*.6));
-  B.alive=false;B.hp=0;renderBossBar();
-  S.wallet+=r;S.totals.kills++;S.daily.kills++;
-  showWarn('🏆 HẠ GỤC!');notify('🐉 Hạ gục '+b.name+'! +'+fmt(r));
-  addFeed('🏆 '+rm.name+': hạ '+b.name+' +'+fmt(r));
-  $('boss').classList.add('dying');
-  dropChest(p.idx<2?'common':p.idx<4?'rare':'gold');
-  txPush('Thưởng','Boss','','',r);
-  p.idx++;if(p.idx>=BOSSES.length){p.idx=0;p.loop++}
-  clearTimeout(bossRespawn);bossRespawn=setTimeout(()=>{if(user)spawnBoss()},2600);
-  renderWallet();saveUser();
-}
-function bossCharge(){
-  if(!user||!B.alive||Math.random()>.3)return;
-  showWarn('⚡ BOSS TĂNG TỐC!');shake();
-}
-function castBomb(){
-  if(!user)return;
-  if(!GAMES.fish)return notify('Trò chơi bắn cá đang tạm tắt.');
-  if(Date.now()<S.bombCD)return;
-  if(!B.alive)return notify('Chưa có boss!');
-  const r=$('boss').getBoundingClientRect();
-  S.bombCD=Date.now()+CFG.BOMB_CD;
-  applyBossDamage(Math.round(B.max*CFG.BOMB_PCT),{clientX:r.left+r.width/2,clientY:r.top+r.height*.4},false);
-  notify('💣 Bom nước gây '+Math.round(CFG.BOMB_PCT*100)+'% máu boss!');
-  renderSkills();saveUser();
-}
-
+function spawnBoss(){const p=P(),b=BOSSES[p.idx],rm=roomOf(S.room);B.max=Math.round(b.hp*rm.mult*(1+p.loop*.6));B.hp=B.max;B.alive=true;B.enraged=false;const bo=$('boss');const speed=Math.max(6,CFG.BOSS_SPEED[p.idx]-p.loop*2);const turtlePatrol=S.room==='daigia'&&p.idx===3;bo.className=turtlePatrol?'boss patrol':'boss '+(Math.random()<.5?'toRight':'toLeft');bo.style.top=(18+Math.random()*40)+'%';bo.style.animationDuration=speed+'s';bo.style.animationIterationCount=turtlePatrol?'infinite':'1';bo.style.animationDirection=turtlePatrol?'alternate':'normal';bo.classList.remove('facingRight');bo.innerHTML=b.svg();bo.style.display='block';bo.onanimationiteration=e=>{if(turtlePatrol&&e.target===bo&&B.alive)bo.classList.toggle('facingRight')};bo.onanimationend=e=>{if(!turtlePatrol&&e.target===bo&&e.animationName.indexOf('swim')===0&&B.alive)escapeBoss()};$('arena').classList.remove('rage');$('bossName').textContent=b.name+(p.loop?' ⭐ x'+(p.loop+1):'');$('bossLv').textContent=b.lv;$('status').textContent=rm.name+' • Boss '+(p.idx+1)+'/'+BOSSES.length;renderBossBar();showWarn('🐉 '+b.name+' XUẤT HIỆN!')}
+function escapeBoss(){B.alive=false;$('boss').style.display='none';showWarn('🐉 BOSS ĐÃ BƠI THOÁT!');clearTimeout(bossRespawn);bossRespawn=setTimeout(()=>{if(user)spawnBoss()},CFG.BOSS_RESPAWN_MS)}
+function renderBossBar(){const pct=B.max?Math.max(0,B.hp/B.max*100):0;$('bossText').textContent=fmt(Math.max(0,B.hp))+' / '+fmt(B.max)+' HP';$('bossHp').style.width=pct+'%'}
+function bossHit(e,cost){const a=AMMOS[S.ammo],crit=Math.random()<CFG.CRIT,bm=buffMult('dmg');const raw=cost*a[2]*S.power*gun().mult*CFG.ARMOR*(.75+Math.random()*.65)*(crit?2:1)*bm;const dmg=Math.round(Math.min(raw,B.max*CFG.BOSS_HIT_CAP));applyBossDamage(dmg,e,crit)}
+function applyBossDamage(dmg,e,crit){if(!B.alive)return;B.hp-=dmg;S.daily.dmg=(S.daily.dmg||0)+dmg;const bo=$('boss');bo.classList.remove('hit');void bo.offsetWidth;bo.classList.add('hit');if(e)floatText(e,(crit?'CHÍ MẠNG ':'-')+fmt(dmg),crit?'#ff4d6d':'#ffed65');if(B.hp<=0){killBoss();return}if(!B.enraged&&B.hp/B.max<.35){B.enraged=true;bo.classList.add('rage');$('arena').classList.add('rage');showWarn('😡 NỔI GIẬN!');shake()}renderBossBar()}
+function killBoss(){const p=P(),b=BOSSES[p.idx],rm=roomOf(S.room);const r=Math.round(b.reward*rm.mult*(1+p.loop*.6));B.alive=false;B.hp=0;renderBossBar();S.wallet+=r;S.totals.kills++;S.daily.kills++;showWarn('🏆 HẠ GỤC!');notify('🐉 Hạ gục '+b.name+'! +'+fmt(r));addFeed('🏆 '+rm.name+': hạ '+b.name+' +'+fmt(r));$('boss').classList.add('dying');dropChest(p.idx<2?'common':p.idx<4?'rare':'gold');txPush('Thưởng','Boss','','',r);p.idx++;if(p.idx>=BOSSES.length){p.idx=0;p.loop++}clearTimeout(bossRespawn);bossRespawn=setTimeout(()=>{if(user)spawnBoss()},2600);renderWallet();saveUser()}
+function bossCharge(){if(!user||!B.alive||Math.random()>.3)return;showWarn('⚡ BOSS TĂNG TỐC!');shake()}
+function castBomb(){if(!user)return;if(Date.now()<S.bombCD)return;if(!B.alive)return notify('Chưa có boss!');const r=$('boss').getBoundingClientRect();S.bombCD=Date.now()+CFG.BOMB_CD;applyBossDamage(Math.round(B.max*CFG.BOMB_PCT),{clientX:r.left+r.width/2,clientY:r.top+r.height*.4},false);notify('💣 Bom gây '+Math.round(CFG.BOMB_PCT*100)+'% máu boss!');renderSkills();saveUser()}
 function pickFish(){let r=Math.random();for(const f of FISH){r-=f.w;if(r<0)return f}return FISH[0]}
-function spawnFish(){
-  const sp=pickFish(),el=document.createElement('div');
-  el.className='fish';el.innerHTML=sp.svg;
-  el.style.left=(3+Math.random()*80)+'%';el.style.top=(15+Math.random()*60)+'%';
-  el.style.animationDelay=(-Math.random()*4)+'s';
-  const f={sp,el,dead:false};
-  el.onclick=e=>{e.stopPropagation();if(!f.dead)shootAt(e,'fish',f)};
-  $('arena').appendChild(el);fishes.push(f);
-  setTimeout(()=>{if(!f.dead){f.dead=true;el.remove()}},25000);
-}
-function fishLoop(){
-  if(!user||!S||$('gameScreen').classList.contains('hidden'))return;
-  fishes=fishes.filter(f=>!f.dead);
-  while(fishes.length<12)spawnFish();
-}
-function catchFish(f,e,reward){
-  f.dead=true;S.wallet+=reward;S.totals.fish++;S.daily.fish++;
-  f.el.classList.add('dying');setTimeout(()=>f.el.remove(),450);
-  floatText(e,'+'+fmt(reward),'#8dffb5');
-  if(f.sp.m>=15){notify('✨ Hạ cá hiếm! +'+fmt(reward));shake()}
-  if(Math.random()<.02)dropChest('common');
-}
-
-function shootAt(e,target,fishObj){
-  if(!user||!S)return;
-  if(!GAMES.fish){stopAuto();return notify('Trò chơi bắn cá đang tạm tắt.')}
-  if(target==='boss'&&!B.alive)return;
-  const cost=Number($('bet').value);
-  if(S.wallet<cost){notify('Không đủ xu, chọn mức đạn thấp hơn.');stopAuto();return}
-  S.wallet-=cost;S.totals.shots++;S.daily.shots++;
-  beam(e);
-  if(target==='fish'){
-    if(Math.random()<Math.min(CFG.FISH_CATCH_MAX,CFG.FISH_CATCH/fishObj.sp.m)){
-      catchFish(fishObj,e,Math.round(cost*fishObj.sp.m*buffMult('luck')*evtMult()));
-    }else{
-      fishObj.el.animate([{transform:'translateX(0)'},{transform:'translateX(8px)'},{transform:'translateX(-8px)'},{transform:'translateX(0)'}],{duration:250});
-    }
-  }else bossHit(e,cost);
-  renderWallet();renderQuests();saveUser();
-}
-function beam(e){
-  const a=$('arena'),r=a.getBoundingClientRect();
-  const sx=r.width/2,sy=r.height-70,x=e.clientX-r.left,y=e.clientY-r.top,dx=x-sx,dy=y-sy;
-  const b=document.createElement('div');
-  b.style.cssText=`position:absolute;height:5px;left:${sx}px;top:${sy}px;width:${Math.hypot(dx,dy)}px;transform-origin:0 50%;transform:rotate(${Math.atan2(dy,dx)}rad);background:linear-gradient(90deg,#fff,${gun().beam});z-index:7;border-radius:5px;pointer-events:none;transition:opacity .3s`;
-  a.appendChild(b);setTimeout(()=>b.style.opacity=0,80);setTimeout(()=>b.remove(),350);
-}
-function floatText(e,txt,color){
-  const a=$('arena'),r=a.getBoundingClientRect(),d=document.createElement('div');
-  d.className='dmg';d.textContent=txt;d.style.color=color;
-  d.style.left=(e.clientX-r.left)+'px';d.style.top=(e.clientY-r.top)+'px';
-  a.appendChild(d);setTimeout(()=>d.remove(),900);
-}
+function spawnFish(){const sp=pickFish(),el=document.createElement('div');el.className='fish';el.innerHTML=sp.svg;el.style.left=(3+Math.random()*80)+'%';el.style.top=(15+Math.random()*60)+'%';el.style.animationDelay=(-Math.random()*4)+'s';const f={sp,el,dead:false};el.onclick=e=>{e.stopPropagation();if(!f.dead)shootAt(e,'fish',f)};$('arena').appendChild(el);fishes.push(f);setTimeout(()=>{if(!f.dead){f.dead=true;el.remove()}},25000)}
+function fishLoop(){if(!user||!S||$('gameScreen').classList.contains('hidden'))return;fishes=fishes.filter(f=>!f.dead);while(fishes.length<12)spawnFish()}
+function catchFish(f,e,reward){f.dead=true;S.wallet+=reward;S.totals.fish++;S.daily.fish++;f.el.classList.add('dying');setTimeout(()=>f.el.remove(),450);floatText(e,'+'+fmt(reward),'#8dffb5');if(f.sp.m>=15){notify('✨ Hạ cá hiếm! +'+fmt(reward));shake()}if(Math.random()<.02)dropChest('common')}
+function shootAt(e,target,fishObj){if(!user||!S)return;if(target==='boss'&&!B.alive)return;const cost=Number($('bet').value);if(S.wallet<cost){notify('Không đủ xu.');stopAuto();return}S.wallet-=cost;S.totals.shots++;S.daily.shots++;beam(e);if(target==='fish'){if(Math.random()<Math.min(CFG.FISH_CATCH_MAX,CFG.FISH_CATCH/fishObj.sp.m)){catchFish(fishObj,e,Math.round(cost*fishObj.sp.m*buffMult('luck')*evtMult()))}else{fishObj.el.animate([{transform:'translateX(0)'},{transform:'translateX(8px)'},{transform:'translateX(-8px)'},{transform:'translateX(0)'}],{duration:250})}}else bossHit(e,cost);renderWallet();renderQuests();saveUser()}
+function beam(e){const a=$('arena'),r=a.getBoundingClientRect();const sx=r.width/2,sy=r.height-70,x=e.clientX-r.left,y=e.clientY-r.top,dx=x-sx,dy=y-sy;const b=document.createElement('div');b.style.cssText=`position:absolute;height:5px;left:${sx}px;top:${sy}px;width:${Math.hypot(dx,dy)}px;transform-origin:0 50%;transform:rotate(${Math.atan2(dy,dx)}rad);background:linear-gradient(90deg,#fff,${gun().beam});z-index:7;border-radius:5px;pointer-events:none;transition:opacity .3s`;a.appendChild(b);setTimeout(()=>b.style.opacity=0,80);setTimeout(()=>b.remove(),350)}
+function floatText(e,txt,color){const a=$('arena'),r=a.getBoundingClientRect(),d=document.createElement('div');d.className='dmg';d.textContent=txt;d.style.color=color;d.style.left=(e.clientX-r.left)+'px';d.style.top=(e.clientY-r.top)+'px';a.appendChild(d);setTimeout(()=>d.remove(),900)}
 function showWarn(t){const d=document.createElement('div');d.className='warn';d.textContent=t;$('arena').appendChild(d);setTimeout(()=>d.remove(),1000)}
 function shake(){const a=$('arena');a.classList.remove('shake');void a.offsetWidth;a.classList.add('shake');setTimeout(()=>a.classList.remove('shake'),380)}
-function upgrade(){
-  if(!user)return;
-  if(S.power>=CFG.UPG_MAX)return notify('Pháo đã đạt cấp tối đa');
-  const c=CFG.UPG*S.power;
-  if(S.wallet<c)return notify('Cần '+fmt(c)+' xu');
-  S.wallet-=c;S.power++;renderWallet();saveUser();notify('⚡ Pháo lên cấp '+S.power);
-}
-function toggleAuto(){
-  if(autoT)return stopAuto();
-  if(!GAMES.fish)return notify('Trò chơi bắn cá đang tạm tắt.');
-  autoT=setInterval(autoShot,350);$('autoBtn').textContent='⏸ Dừng bắn';
-}
+function upgrade(){if(!user)return;if(S.power>=CFG.UPG_MAX)return notify('Pháo đã đạt cấp tối đa');const c=CFG.UPG*S.power;if(S.wallet<c)return notify('Cần '+fmt(c)+' xu');S.wallet-=c;S.power++;renderWallet();saveUser();notify('⚡ Pháo lên cấp '+S.power)}
+function toggleAuto(){if(autoT)return stopAuto();autoT=setInterval(autoShot,350);$('autoBtn').textContent='⏸ Dừng bắn'}
 function stopAuto(){clearInterval(autoT);autoT=null;$('autoBtn').textContent='▶ Bắn tự động'}
-function autoShot(){
-  if(!B.alive||!user)return;
-  const r=$('boss').getBoundingClientRect();
-  shootAt({clientX:r.left+r.width/2,clientY:r.top+r.height*.4},'boss');
-}
+function autoShot(){if(!B.alive||!user)return;const r=$('boss').getBoundingClientRect();shootAt({clientX:r.left+r.width/2,clientY:r.top+r.height*.4},'boss')}
 $('boss').onclick=e=>{e.stopPropagation();if(B.alive)shootAt(e,'boss')};
-
-function castNet(){
-  if(!user)return;
-  if(!GAMES.fish)return notify('Trò chơi bắn cá đang tạm tắt.');
-  if(Date.now()<S.netCD)return;
-  const bet=Number($('bet').value);
-  const targets=fishes.filter(f=>!f.dead).sort(()=>Math.random()-.5).slice(0,3);
-  if(!targets.length)return notify('Không có cá trong lưới!');
-  if(S.wallet<bet)return notify('Không đủ xu.');
-  S.wallet-=bet;
-  targets.forEach(f=>{
-    const r=f.el.getBoundingClientRect();
-    catchFish(f,{clientX:r.left+r.width/2,clientY:r.top+r.height/2},Math.round(bet*f.sp.m*CFG.NET_MULT*buffMult('luck')*evtMult()));
-  });
-  S.netCD=Date.now()+CFG.NET_CD;
-  notify('🕸️ Lưới bắt được '+targets.length+' con!');
-  renderWallet();renderSkills();saveUser();
-}
-function renderSkills(){
-  if(!S)return;
-  const n=Math.max(0,Math.ceil((S.netCD-Date.now())/1000)),b=Math.max(0,Math.ceil((S.bombCD-Date.now())/1000));
-  $('netBtn').textContent=n?'🕸️ Lưới ('+n+'s)':'🕸️ Lưới';
-  $('bombBtn').textContent=b?'💣 Bom ('+b+'s)':'💣 Bom';
-  $('netBtn').disabled=n>0;$('bombBtn').disabled=b>0;
-}
-
+function castNet(){if(!user)return;if(Date.now()<S.netCD)return;const bet=Number($('bet').value);const targets=fishes.filter(f=>!f.dead).sort(()=>Math.random()-.5).slice(0,3);if(!targets.length)return notify('Không có cá trong lưới!');if(S.wallet<bet)return notify('Không đủ xu.');S.wallet-=bet;targets.forEach(f=>{const r=f.el.getBoundingClientRect();catchFish(f,{clientX:r.left+r.width/2,clientY:r.top+r.height/2},Math.round(bet*f.sp.m*CFG.NET_MULT*buffMult('luck')*evtMult()))});S.netCD=Date.now()+CFG.NET_CD;notify('🕸️ Lưới bắt được '+targets.length+' con!');renderWallet();renderSkills();saveUser()}
+function renderSkills(){if(!S)return;const n=Math.max(0,Math.ceil((S.netCD-Date.now())/1000)),b=Math.max(0,Math.ceil((S.bombCD-Date.now())/1000));$('netBtn').textContent=n?'🕸️ Lưới ('+n+'s)':'🕸️ Lưới';$('bombBtn').textContent=b?'💣 Bom ('+b+'s)':'💣 Bom';$('netBtn').disabled=n>0;$('bombBtn').disabled=b>0}
 function dropChest(t){S.inv[t]=(S.inv[t]||0)+1;notify(CHESTS[t][0]+' Nhận '+CHESTS[t][1]+'!');renderInv()}
 function setBuff(type,mult,sec){S.buff={type,mult,until:Date.now()+sec*1000}}
 function buffMult(t){return S&&S.buff&&S.buff.type===t&&S.buff.until>Date.now()?S.buff.mult:1}
-function openChest(t){
-  if(!S.inv[t])return;
-  S.inv[t]--;const r=Math.random();
-  if(t==='common'){
-    if(r<.5){const c=rnd(30000,80000);S.wallet+=c;notify('📦 +'+fmt(c)+' xu')}
-    else{setBuff('dmg',2,30);notify('✨ Buff sát thương x2 (30s)')}
-  }else if(t==='rare'){
-    if(r<.4){const c=rnd(150000,400000);S.wallet+=c;notify('🎁 +'+fmt(c)+' xu')}
-    else if(r<.7){setBuff('dmg',3,20);notify('✨ Buff sát thương x3 (20s)')}
-    else{setBuff('luck',1.5,45);notify('🍀 Buff may mắn x1,5 (45s)')}
-  }else{
-    const c=rnd(800000,2000000);S.wallet+=c;setBuff('dmg',4,40);notify('👑 +'+fmt(c)+' xu + buff x4!')
-  }
-  renderWallet();renderInv();saveUser();
-}
-function renderInv(){
-  if(!S)return;
-  $('invBox').innerHTML=Object.keys(CHESTS).map(t=>`<div class="row"><span>${CHESTS[t][0]} ${CHESTS[t][1]}: <b>${S.inv[t]||0}</b></span><button ${S.inv[t]?'':'disabled'} onclick="openChest('${t}')">Mở</button></div>`).join('')+'<div id="buffLine" class="hint" style="padding-top:6px"></div>';
-  renderBuff();
-}
-function renderBuff(){
-  if(!S||!$('buffLine'))return;
-  const on=S.buff&&S.buff.until>Date.now();
-  $('buffLine').textContent=on?'✨ Buff '+(S.buff.type==='dmg'?'sát thương':'may mắn')+' x'+S.buff.mult+' • còn '+Math.ceil((S.buff.until-Date.now())/1000)+'s':'Buff: không có';
-}
-
-function renderQuests(){
-  if(!S)return;
-  ensureDaily();
-  $('questBox').innerHTML=QUESTS.map(q=>{
-    const v=S.daily[q.id]||0,done=v>=q.target,cl=!!S.daily.claimed[q.id],pct=Math.min(100,v/q.target*100);
-    return `<div class="row"><div style="flex:1"><b>${q.label}</b><div style="height:6px;background:#0a2a4a;border-radius:6px;margin:4px 0;overflow:hidden"><div style="height:100%;width:${pct}%;background:#47ffb3"></div></div><small>${fmt(v)} / ${fmt(q.target)}</small></div>${cl?'<small>✅</small>':`<button ${done?'':'disabled'} onclick="claimQuest('${q.id}')">+${fmt(q.reward)}</button>`}</div>`;
-  }).join('');
-}
-function claimQuest(id){
-  const q=QUESTS.find(x=>x.id===id);
-  if(!q||(S.daily[id]||0)<q.target||S.daily.claimed[id])return;
-  S.daily.claimed[id]=true;S.wallet+=q.reward;
-  renderWallet();renderQuests();saveUser();notify('🎯 +'+fmt(q.reward)+' xu');
-}
-
-function getBots(){
-  let b=JSON.parse(localStorage.getItem('sf_bots')||'null');
-  if(!Array.isArray(b)){
-    b=Array.from({length:105},(_,i)=>({name:BOTF[i%10]+' '+BOTN[i%20]+' '+BOTT[(i*7)%14],score:Math.round((2e6+Math.random()*8e8)/1000)*1000}));
-    localStorage.setItem('sf_bots',JSON.stringify(b));
-  }
-  return b;
-}
-async function loadBoard(){
-  let players=[];
-  try{players=(await apiRaw({action:'board'})).board}catch(e){}
-  const all=[...getBots(),...players].sort((a,b)=>b.score-a.score).slice(0,10);
-  $('boardBox').innerHTML=all.map((r,i)=>`<div class="row" style="${r.name===user?'background:#0c3a5e;border-radius:6px':''}"><span>${['🥇','🥈','🥉'][i]||(i+1)+'.'} ${r.name}</span><span>🪙 ${fmt(r.score)}</span></div>`).join('');
-}
-
-async function addFriend(){
-  if(!user)return;
-  const n=$('friendName').value.trim();
-  if(!n)return notify('Nhập tên người chơi.');
-  if(n===user)return notify('Không thể thêm chính mình.');
-  if(S.friends.includes(n))return notify('Đã có trong danh sách.');
-  if(S.friends.length>=CFG.MAX_FRIENDS)return notify('Tối đa '+CFG.MAX_FRIENDS+' bạn.');
-  const j=await sync('check',{to:n});
-  if(!j)return;
-  S.friends.push(n);$('friendName').value='';renderFriends();saveUser();
-}
+function openChest(t){if(!S.inv[t])return;S.inv[t]--;const r=Math.random();if(t==='common'){if(r<.5){const c=rnd(30000,80000);S.wallet+=c;notify('📦 +'+fmt(c)+' xu')}else{setBuff('dmg',2,30);notify('✨ Buff sát thương x2')}}else if(t==='rare'){if(r<.4){const c=rnd(150000,400000);S.wallet+=c;notify('🎁 +'+fmt(c)+' xu')}else if(r<.7){setBuff('dmg',3,20);notify('✨ Buff x3')}else{setBuff('luck',1.5,45);notify('🍀 Buff may mắn x1,5')}}else{const c=rnd(800000,2000000);S.wallet+=c;setBuff('dmg',4,40);notify('👑 +'+fmt(c)+' xu + buff x4!')}renderWallet();renderInv();saveUser()}
+function renderInv(){if(!S)return;$('invBox').innerHTML=Object.keys(CHESTS).map(t=>`<div class="row"><span>${CHESTS[t][0]} ${CHESTS[t][1]}: <b>${S.inv[t]||0}</b></span><button ${S.inv[t]?'':'disabled'} onclick="openChest('${t}')">Mở</button></div>`).join('')+'<div id="buffLine" class="hint" style="padding-top:6px"></div>';renderBuff()}
+function renderBuff(){if(!S||!$('buffLine'))return;const on=S.buff&&S.buff.until>Date.now();$('buffLine').textContent=on?'✨ Buff '+(S.buff.type==='dmg'?'sát thương':'may mắn')+' x'+S.buff.mult+' • còn '+Math.ceil((S.buff.until-Date.now())/1000)+'s':'Buff: không có'}
+function renderQuests(){if(!S)return;ensureDaily();$('questBox').innerHTML=QUESTS.map(q=>{const v=S.daily[q.id]||0,done=v>=q.target,cl=!!S.daily.claimed[q.id],pct=Math.min(100,v/q.target*100);return `<div class="row"><div style="flex:1"><b>${q.label}</b><div style="height:6px;background:#0a2a4a;border-radius:6px;margin:4px 0;overflow:hidden"><div style="height:100%;width:${pct}%;background:#47ffb3"></div></div><small>${fmt(v)} / ${fmt(q.target)}</small></div>${cl?'<small>✅</small>':`<button ${done?'':'disabled'} onclick="claimQuest('${q.id}')">+${fmt(q.reward)}</button>`}</div>`}).join('')}
+function claimQuest(id){const q=QUESTS.find(x=>x.id===id);if(!q||(S.daily[id]||0)<q.target||S.daily.claimed[id])return;S.daily.claimed[id]=true;S.wallet+=q.reward;renderWallet();renderQuests();saveUser();notify('🎯 +'+fmt(q.reward)+' xu')}
+function getBots(){let b=JSON.parse(localStorage.getItem('sf_bots')||'null');if(!Array.isArray(b)){b=Array.from({length:105},(_,i)=>({name:BOTF[i%10]+' '+BOTN[i%20]+' '+BOTT[(i*7)%14],score:Math.round((2e6+Math.random()*8e8)/1000)*1000}));localStorage.setItem('sf_bots',JSON.stringify(b))}return b}
+async function loadBoard(){let players=[];try{players=(await apiRaw({action:'board'})).board}catch(e){}const all=[...getBots(),...players].sort((a,b)=>b.score-a.score).slice(0,10);$('boardBox').innerHTML=all.map((r,i)=>`<div class="row" style="${r.name===user?'background:#0c3a5e;border-radius:6px':''}"><span>${['🥇','🥈','🥉'][i]||(i+1)+'.'} ${r.name}</span><span>🪙 ${fmt(r.score)}</span></div>`).join('')}
+async function addFriend(){if(!user)return;const n=$('friendName').value.trim();if(!n)return notify('Nhập tên.');if(n===user)return notify('Không thể thêm chính mình.');if(S.friends.includes(n))return notify('Đã có trong danh sách.');if(S.friends.length>=CFG.MAX_FRIENDS)return notify('Tối đa '+CFG.MAX_FRIENDS+' bạn.');const j=await sync('check',{to:n});if(!j)return;S.friends.push(n);$('friendName').value='';renderFriends();saveUser()}
 function removeFriend(n){S.friends=S.friends.filter(x=>x!==n);renderFriends();saveUser()}
-function renderFriends(){
-  if(!S)return;
-  $('friendList').innerHTML=S.friends.length?S.friends.map(f=>`<div class="row"><span>👤 ${f}</span><button class="red" onclick="removeFriend('${f}')">Xóa</button></div>`).join(''):'<small class="hint">Chưa có bạn.</small>';
-  const sel=$('friendSel').value;
-  $('friendSel').innerHTML=S.friends.length?S.friends.map(f=>`<option ${f===sel?'selected':''}>${f}</option>`).join(''):'<option value="">— chưa có bạn —</option>';
-}
-async function sendGift(){
-  if(!user)return;
-  const to=$('friendSel').value,amt=Math.floor(Number($('giftAmt').value)||0);
-  if(!to)return notify('Chưa có bạn để tặng.');
-  const j=await sync('gift',{to,amount:amt});
-  if(j){notify('🎁 '+j.message);addFeed('🎁 Tặng '+fmt(j.got)+' xu cho '+to);txPush('Tặng',to,'','',-amt);renderWallet()}
-}
-async function redeemCode(){
-  if(!user)return;
-  const code=$('giftCodeIn').value.trim();
-  if(!code)return notify('Dán mã quà vào.');
-  const j=await sync('redeem',{code});
-  if(j){$('giftCodeIn').value='';notify('🎟️ '+j.message);addFeed('🎟️ Nhận mã: +'+fmt(j.got));txPush('Nhận mã','',1,'',j.got)}
-}
-
-function openBC(){
-  if(!user)return;
-  if(!GAMES.bc)return notify('Bầu cua đang tạm tắt.');
-  $('bcView').classList.remove('hidden');
-  bcErr='';renderBC();
-  if(!bcLoopT)bcLoopT=setInterval(bcLoop,1000);
-  pollBC();
-}
-function closeBC(){
-  if($('bcView'))$('bcView').classList.add('hidden');
-  clearInterval(bcLoopT);bcLoopT=null;
-}
-function bcLoop(){
-  if(!user||$('bcView').classList.contains('hidden'))return;
-  const now=Date.now();
-  if(now-bcLastPoll>=2000){bcLastPoll=now;pollBC()}
-  updateBcTimer();
-}
-async function pollBC(){
-  if(!user||!S)return;
-  try{
-    const j=await apiRaw({action:'bcPoll',name:user,pass,room:S.room});
-    bcErr='';
-    bcState=Object.assign({},j.bc,{recv:Date.now()});
-  }catch(e){bcErr=e.message||'Lỗi không xác định'}
-  renderBC();
-}
-function updateBcTimer(){
-  if(!bcState)return;
-  const left=Math.max(0,Math.ceil((bcState.remain-(Date.now()-bcState.recv))/1000));
-  $('bcTimer').textContent=left;
-}
-function renderBC(){
-  if(!S)return;
-  renderWallet();
-  $('bcRoom').textContent=roomOf(S.room).name;
-  if(bcErr){
-    $('bcGrid').innerHTML=`<div class="down">Không kết nối được sảnh: ${bcErr}</div><div class="hint">Đang thử lại mỗi 2 giây.</div>`;
-    return;
-  }
-  if(!bcState){$('bcGrid').innerHTML='<div class="hint">Đang tải sảnh...</div>';return}
-  $('bcGrid').innerHTML=BC.map(([k,e,n])=>`<div class="bcf" onclick="placeBC('${k}')"><div class="e">${e}</div><b>${n}</b><div class="price">Tổng: ${fmt(bcState.totals[k]||0)}</div><div class="hint">Bạn cược: ${fmt(bcState.mine[k]||0)}</div></div>`).join('');
-  $('bcBetsList').innerHTML=bcState.bets.length
-    ?bcState.bets.map(b=>{const f=BC.find(x=>x[0]===b.k);return `<div class="row"><span>${b.u}</span><span>${f[1]} ${f[2]}</span><span class="price">${fmt(b.a)}</span></div>`}).join('')
-    :'<small class="hint">Chưa có ai cược trong vòng này.</small>';
-  $('bcHist').textContent=bcState.hist&&bcState.hist.length
-    ?'Gần đây: '+bcState.hist.map(d=>d.map(k=>BC.find(x=>x[0]===k)[1]).join(' ')).join('  |  ')
-    :'';
-  updateBcTimer();
-  showLastResult();
-}
-function showLastResult(){
-  const last=bcState&&bcState.last;
-  if(!last||last.id===bcShownId)return;
-  bcShownId=last.id;
-  $('bcDice').innerHTML=last.dice.map(k=>`<div class="die">${BC.find(x=>x[0]===k)[1]}</div>`).join('');
-  const me=last.players.find(p=>p.name===user);
-  $('bcRes').innerHTML=me
-    ?(me.net>0?`<span class="up">🎉 Vòng #${last.id}: thắng +${fmt(me.net)} xu</span>`
-      :me.net===0?`<span>Vòng #${last.id}: hòa vốn</span>`
-      :`<span class="down">Vòng #${last.id}: thua −${fmt(-me.net)} xu</span>`)
-    :`<span class="hint">Vòng #${last.id}: bạn không cược</span>`;
-}
-async function placeBC(k){
-  if(!user||!S)return;
-  if(!GAMES.bc)return notify('Bầu cua đang tạm tắt.');
-  const amt=Number($('bcChip').value);
-  if(amt>S.wallet)return notify('Không đủ xu.');
-  const j=await sync('bcBet',{key:k,amount:amt,room:S.room});
-  if(j){notify('🎲 Đã cược '+fmt(amt)+' xu');pollBC()}
-}
-
-function tickMarket(){
-  if(!user||!S)return;
-  if(Math.random()>.35)return;
-  const s=S.stocks[rnd(0,S.stocks.length-1)],old=s.p;
-  s.prev=old;s.p=Math.max(100,Math.round(old*(1+(Math.random()-.48)*.05)));
-  s.hist.push(s.p);if(s.hist.length>60)s.hist.shift();
-  if(Math.random()<.4)addFeed((s.p>old?'🟢 ':'🔴 ')+s.s+(s.p>old?' tăng ':' giảm ')+Math.abs((s.p/old-1)*100).toFixed(2)+'%');
-  renderStocks();
-  if(!$('marketView').classList.contains('hidden'))renderMarket();
-}
-function renderStocks(){
-  if(!S)return;
-  $('stockRows').innerHTML=S.stocks.map(s=>{
-    const d=(s.p/s.prev-1)*100;
-    return `<tr><td><b>${s.s}</b></td><td>${fmt(s.p)}</td><td class="${d>=0?'up':'down'}">${d.toFixed(2)}%</td><td><button onclick="trade('${s.s}',1)">Mua</button> <button class="red" onclick="trade('${s.s}',0)">Bán</button></td></tr>`;
-  }).join('');
-}
-function trade(sym,buy){
-  if(!user)return;
-  const s=S.stocks.find(x=>x.s===sym);
-  if(buy){
-    const q=Math.min(10,Math.floor(S.wallet/s.p));
-    if(q<1)return notify('Không đủ xu mua '+sym);
-    const cost=q*s.p;
-    S.wallet-=cost;S.hold[sym]=(S.hold[sym]||0)+q;
-    txPush('Mua',sym,q,s.p,-cost);notify('Đã mua '+q+' '+sym);
-  }else{
-    const q=S.hold[sym]||0;
-    if(!q)return notify('Chưa giữ '+sym);
-    S.wallet+=q*s.p;S.hold[sym]=0;
-    txPush('Bán',sym,q,s.p,q*s.p);notify('Đã bán '+q+' '+sym);
-  }
-  renderWallet();renderStocks();renderMarket();saveUser();
-}
+function renderFriends(){if(!S)return;$('friendList').innerHTML=S.friends.length?S.friends.map(f=>`<div class="row"><span>👤 ${f}</span><button class="red" onclick="removeFriend('${f}')">Xóa</button></div>`).join(''):'<small class="hint">Chưa có bạn.</small>';const sel=$('friendSel').value;$('friendSel').innerHTML=S.friends.length?S.friends.map(f=>`<option ${f===sel?'selected':''}>${f}</option>`).join(''):'<option value="">— chưa có bạn —</option>'}
+async function sendGift(){if(!user)return;const to=$('friendSel').value,amt=Math.floor(Number($('giftAmt').value)||0);if(!to)return notify('Chưa có bạn để tặng.');const j=await sync('gift',{to,amount:amt});if(j){notify('🎁 '+j.message);addFeed('🎁 Tặng '+fmt(j.got)+' xu cho '+to);txPush('Tặng',to,'','',-amt);renderWallet()}}
+async function redeemCode(){if(!user)return;const code=$('giftCodeIn').value.trim();if(!code)return notify('Dán mã quà vào.');const j=await sync('redeem',{code});if(j){$('giftCodeIn').value='';notify('🎟️ '+j.message);addFeed('🎟️ Nhận mã: +'+fmt(j.got));txPush('Nhận mã','',1,'',j.got)}}
+function openBC(){if(!user)return;$('bcView').classList.remove('hidden');bcErr='';renderBC();if(!bcLoopT)bcLoopT=setInterval(bcLoop,1000);pollBC()}
+function closeBC(){if($('bcView'))$('bcView').classList.add('hidden');clearInterval(bcLoopT);bcLoopT=null}
+function bcLoop(){if(!user||$('bcView').classList.contains('hidden'))return;const now=Date.now();if(now-bcLastPoll>=2000){bcLastPoll=now;pollBC()}updateBcTimer()}
+async function pollBC(){if(!user||!S)return;try{const j=await apiRaw({action:'bcPoll',name:user,pass,room:S.room});bcErr='';bcState=Object.assign({},j.bc,{recv:Date.now()})}catch(e){bcErr=e.message||'Lỗi'}renderBC()}
+function updateBcTimer(){if(!bcState)return;const left=Math.max(0,Math.ceil((bcState.remain-(Date.now()-bcState.recv))/1000));$('bcTimer').textContent=left}
+function renderBC(){if(!S)return;renderWallet();$('bcRoom').textContent=roomOf(S.room).name;if(bcErr){$('bcGrid').innerHTML=`<div class="down">Không kết nối được sảnh: ${bcErr}</div>`;return}if(!bcState){$('bcGrid').innerHTML='<div class="hint">Đang tải sảnh...</div>';return}$('bcGrid').innerHTML=BC.map(([k,e,n])=>`<div class="bcf" onclick="placeBC('${k}')"><div class="e">${e}</div><b>${n}</b><div class="price">Tổng: ${fmt(bcState.totals[k]||0)}</div><div class="hint">Bạn cược: ${fmt(bcState.mine[k]||0)}</div></div>`).join('');$('bcBetsList').innerHTML=bcState.bets.length?bcState.bets.map(b=>{const f=BC.find(x=>x[0]===b.k);return `<div class="row"><span>${b.u}</span><span>${f[1]} ${f[2]}</span><span class="price">${fmt(b.a)}</span></div>`}).join(''):'<small class="hint">Chưa có ai cược.</small>';$('bcHist').textContent=bcState.hist&&bcState.hist.length?'Gần đây: '+bcState.hist.map(d=>d.map(k=>BC.find(x=>x[0]===k)[1]).join(' ')).join('  |  '):'';updateBcTimer();showLastResult()}
+function showLastResult(){const last=bcState&&bcState.last;if(!last||last.id===bcShownId)return;bcShownId=last.id;$('bcDice').innerHTML=last.dice.map(k=>`<div class="die">${BC.find(x=>x[0]===k)[1]}</div>`).join('');const me=last.players.find(p=>p.name===user);$('bcRes').innerHTML=me?(me.net>0?`<span class="up">🎉 Vòng #${last.id}: +${fmt(me.net)} xu</span>`:me.net===0?`<span>Vòng #${last.id}: hòa vốn</span>`:`<span class="down">Vòng #${last.id}: −${fmt(-me.net)} xu</span>`):`<span class="hint">Vòng #${last.id}: bạn không cược</span>`}
+async function placeBC(k){if(!user||!S)return;const amt=Number($('bcChip').value);if(amt>S.wallet)return notify('Không đủ xu.');const j=await sync('bcBet',{key:k,amount:amt,room:S.room});if(j){notify('🎲 Đã cược '+fmt(amt)+' xu');pollBC()}}
+function tickMarket(){if(!user||!S)return;if(Math.random()>.35)return;const s=S.stocks[rnd(0,S.stocks.length-1)],old=s.p;s.prev=old;s.p=Math.max(100,Math.round(old*(1+(Math.random()-.48)*.05)));s.hist.push(s.p);if(s.hist.length>60)s.hist.shift();if(Math.random()<.4)addFeed((s.p>old?'🟢 ':'🔴 ')+s.s+' '+(s.p>old?'tăng ':'giảm ')+Math.abs((s.p/old-1)*100).toFixed(2)+'%');renderStocks();if(!$('marketView').classList.contains('hidden'))renderMarket()}
+function renderStocks(){if(!S)return;$('stockRows').innerHTML=S.stocks.map(s=>{const d=(s.p/s.prev-1)*100;return `<tr><td><b>${s.s}</b></td><td>${fmt(s.p)}</td><td class="${d>=0?'up':'down'}">${d.toFixed(2)}%</td><td><button onclick="trade('${s.s}',1)">Mua</button> <button class="red" onclick="trade('${s.s}',0)">Bán</button></td></tr>`}).join('')}
+function trade(sym,buy){if(!user)return;const s=S.stocks.find(x=>x.s===sym);if(buy){const q=Math.min(10,Math.floor(S.wallet/s.p));if(q<1)return notify('Không đủ xu mua '+sym);const cost=q*s.p;S.wallet-=cost;S.hold[sym]=(S.hold[sym]||0)+q;txPush('Mua',sym,q,s.p,-cost);notify('Đã mua '+q+' '+sym)}else{const q=S.hold[sym]||0;if(!q)return notify('Chưa giữ '+sym);S.wallet+=q*s.p;S.hold[sym]=0;txPush('Bán',sym,q,s.p,q*s.p);notify('Đã bán '+q+' '+sym)}renderWallet();renderStocks();renderMarket();saveUser()}
 function openMarket(){$('marketView').classList.remove('hidden');renderMarket()}
 function closeMarket(){backHome('marketView')}
-function renderMarket(){
-  if(!S)return;
-  renderWallet();
-  $('mkRows').innerHTML=S.stocks.map(s=>{
-    const d=(s.p/s.prev-1)*100;
-    return `<tr style="cursor:pointer" onclick="mkSel='${s.s}';renderMarket()"><td><b>${s.s}</b></td><td>${s.name}</td><td>${fmt(s.p)}</td><td class="${d>=0?'up':'down'}">${d.toFixed(2)}%</td><td>${S.hold[s.s]||0}</td><td><button onclick="event.stopPropagation();trade('${s.s}',1)">Mua</button> <button class="red" onclick="event.stopPropagation();trade('${s.s}',0)">Bán</button></td></tr>`;
-  }).join('');
-  drawChart();
-  const ent=Object.entries(S.hold).filter(([s,q])=>q>0);
-  let tot=0;
-  ent.forEach(([s,q])=>{tot+=q*S.stocks.find(x=>x.s===s).p});
-  $('mkPort').innerHTML=ent.length
-    ?ent.map(([s,q])=>`<div class="row"><span>${s} × ${q}</span><span>${fmt(q*S.stocks.find(x=>x.s===s).p)}</span></div>`).join('')+`<div class="row"><b>Tổng cổ phiếu</b><b>${fmt(tot)}</b></div>`
-    :'<small class="hint">Chưa có cổ phiếu.</small>';
-  $('mkTx').innerHTML=S.txs.length
-    ?S.txs.slice(0,20).map(x=>`<div class="row"><span>${x.t} ${x.type} ${x.sym}${x.qty!==''?' ×'+x.qty:''}</span><span class="${x.total>=0?'up':'down'}">${x.total>=0?'+':''}${fmt(x.total)}</span></div>`).join('')
-    :'<small class="hint">Chưa có giao dịch.</small>';
-}
-function drawChart(){
-  const s=S.stocks.find(x=>x.s===mkSel)||S.stocks[0];
-  const h=s.hist.length>1?s.hist:[s.p,s.p];
-  const mn=Math.min(...h),mx=Math.max(...h),rg=(mx-mn)||1,W=600,H=160,P0=10;
-  const pts=h.map((v,i)=>(i/(h.length-1)*W).toFixed(1)+','+(H-P0-(v-mn)/rg*(H-2*P0)).toFixed(1)).join(' ');
-  const col=h[h.length-1]>=h[0]?'#25f1c6':'#ff7099';
-  $('mkChart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" style="width:100%;height:100%"><polyline points="${pts}" fill="none" stroke="${col}" stroke-width="3"/></svg>`;
-  $('mkChartInfo').innerHTML=`<b>${s.s}</b> • ${fmt(s.p)} xu • ${((h[h.length-1]/h[0]-1)*100).toFixed(2)}% trong phiên`;
-}
-
+function renderMarket(){if(!S)return;renderWallet();$('mkRows').innerHTML=S.stocks.map(s=>{const d=(s.p/s.prev-1)*100;return `<tr style="cursor:pointer" onclick="mkSel='${s.s}';renderMarket()"><td><b>${s.s}</b></td><td>${s.name}</td><td>${fmt(s.p)}</td><td class="${d>=0?'up':'down'}">${d.toFixed(2)}%</td><td>${S.hold[s.s]||0}</td><td><button onclick="event.stopPropagation();trade('${s.s}',1)">Mua</button> <button class="red" onclick="event.stopPropagation();trade('${s.s}',0)">Bán</button></td></tr>`}).join('');drawChart();const ent=Object.entries(S.hold).filter(([s,q])=>q>0);let tot=0;ent.forEach(([s,q])=>{tot+=q*S.stocks.find(x=>x.s===s).p});$('mkPort').innerHTML=ent.length?ent.map(([s,q])=>`<div class="row"><span>${s} × ${q}</span><span>${fmt(q*S.stocks.find(x=>x.s===s).p)}</span></div>`).join('')+`<div class="row"><b>Tổng</b><b>${fmt(tot)}</b></div>`:'<small class="hint">Chưa có cổ phiếu.</small>';$('mkTx').innerHTML=S.txs.length?S.txs.slice(0,20).map(x=>`<div class="row"><span>${x.t} ${x.type} ${x.sym}${x.qty!==''?' ×'+x.qty:''}</span><span class="${x.total>=0?'up':'down'}">${x.total>=0?'+':''}${fmt(x.total)}</span></div>`).join(''):'<small class="hint">Chưa có giao dịch.</small>'}
+function drawChart(){const s=S.stocks.find(x=>x.s===mkSel)||S.stocks[0];const h=s.hist.length>1?s.hist:[s.p,s.p];const mn=Math.min(...h),mx=Math.max(...h),rg=(mx-mn)||1,W=600,H=160,P0=10;const pts=h.map((v,i)=>(i/(h.length-1)*W).toFixed(1)+','+(H-P0-(v-mn)/rg*(H-2*P0)).toFixed(1)).join(' ');const col=h[h.length-1]>=h[0]?'#25f1c6':'#ff7099';$('mkChart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" style="width:100%;height:100%"><polyline points="${pts}" fill="none" stroke="${col}" stroke-width="3"/></svg>`;$('mkChartInfo').innerHTML=`<b>${s.s}</b> • ${fmt(s.p)} xu • ${((h[h.length-1]/h[0]-1)*100).toFixed(2)}% trong phiên`}
 function openGames(){$('gamesView').classList.remove('hidden');gameTab('door')}
 function closeGames(){$('gamesView').classList.add('hidden');stopLock();showHome()}
-function gameTab(n){
-  $('panelDoor').classList.toggle('hidden',n!=='door');
-  $('panelLock').classList.toggle('hidden',n!=='lock');
-  if(n==='door'){stopLock();renderDoors()}else startLock();
-  renderWallet();
-}
+function gameTab(n){$('panelDoor').classList.toggle('hidden',n!=='door');$('panelLock').classList.toggle('hidden',n!=='lock');if(n==='door'){stopLock();renderDoors()}else startLock();renderWallet()}
 const DOOR=[['coin','🪙','Xu',1.2,.4],['chest','🎁','Rương',2.2,.2],['monster','👾','Quái vật',0,.4]];
 function rollDoor(){let r=Math.random();for(const d of DOOR){r-=d[4];if(r<0)return d}return DOOR[2]}
-function renderDoors(){
-  $('doors').innerHTML=[1,2,3].map(i=>`<div class="door" onclick="playDoor(${i-1})">❓<small>Cửa ${i}</small></div>`).join('');
-  $('doorRes').innerHTML='';
-}
-function playDoor(pick){
-  if(doorBusy||!user)return;
-  if(!GAMES.door)return notify('Cửa may rủi đang tạm tắt.');
-  const bet=Number($('doorBet').value);
-  if(bet>S.wallet)return notify('Không đủ xu.');
-  doorBusy=true;
-  const rolled=[rollDoor(),rollDoor(),rollDoor()];
-  const mult=rolled[pick][3],net=Math.floor(bet*mult)-bet;
-  S.wallet+=net;S.totals.shots++;
-  $('doors').innerHTML=rolled.map((d,i)=>`<div class="door" style="border-color:${i===pick?(net>=0?'#47ffb3':'#ff7099'):'#2edfff'}">${d[1]}<small>${d[2]}</small></div>`).join('');
-  $('doorRes').innerHTML=net>0?`<span class="up">🎉 +${fmt(net)} xu</span>`:net===0?'<span>Hòa vốn</span>':`<span class="down">💥 −${fmt(-net)} xu</span>`;
-  txPush('Cửa may rủi','',bet,'',net);
-  renderWallet();saveUser();doorBusy=false;
-}
-function startLock(){
-  if(lockRAF)return;
-  lockT0=performance.now();
-  const f=t=>{
-    const x=((t-lockT0)/1000*1.2)%2;
-    lockP=x<1?x:2-x;
-    $('needle').style.left=(lockP*100)+'%';
-    lockRAF=requestAnimationFrame(f);
-  };
-  lockRAF=requestAnimationFrame(f);
-}
+function renderDoors(){$('doors').innerHTML=[1,2,3].map(i=>`<div class="door" onclick="playDoor(${i-1})">❓<small>Cửa ${i}</small></div>`).join('');$('doorRes').innerHTML=''}
+function playDoor(pick){if(doorBusy||!user)return;const bet=Number($('doorBet').value);if(bet>S.wallet)return notify('Không đủ xu.');doorBusy=true;const rolled=[rollDoor(),rollDoor(),rollDoor()];const mult=rolled[pick][3],net=Math.floor(bet*mult)-bet;S.wallet+=net;S.totals.shots++;$('doors').innerHTML=rolled.map((d,i)=>`<div class="door" style="border-color:${i===pick?(net>=0?'#47ffb3':'#ff7099'):'#2edfff'}">${d[1]}<small>${d[2]}</small></div>`).join('');$('doorRes').innerHTML=net>0?`<span class="up">🎉 +${fmt(net)} xu</span>`:net===0?'<span>Hòa vốn</span>':`<span class="down">💥 −${fmt(-net)} xu</span>`;txPush('Cửa','',bet,'',net);renderWallet();saveUser();doorBusy=false}
+function startLock(){if(lockRAF)return;lockT0=performance.now();const f=t=>{const x=((t-lockT0)/1000*1.2)%2;lockP=x<1?x:2-x;$('needle').style.left=(lockP*100)+'%';lockRAF=requestAnimationFrame(f)};lockRAF=requestAnimationFrame(f)}
 function stopLock(){if(lockRAF)cancelAnimationFrame(lockRAF);lockRAF=null}
-function lockPress(){
-  if(!user)return;
-  if(!GAMES.lock)return notify('Đếm ngược mở khóa đang tạm tắt.');
-  const bet=Number($('lockBet').value);
-  if(bet>S.wallet)return notify('Không đủ xu.');
-  const d=Math.abs(lockP-.5);
-  const mult=d<=.04?3:d<=.12?1.5:d<=.3?1:0;
-  const net=Math.floor(bet*mult)-bet;
-  S.wallet+=net;S.totals.shots++;
-  const label=mult===3?'🎯 Hoàn hảo!':mult===1.5?'👍 Gần giữa!':mult===1?'😅 Vùng vàng':'❌ Lệch rồi';
-  $('lockRes').innerHTML=`<span class="${net>=0?'up':'down'}">${label} ${net>=0?'+':'−'}${fmt(Math.abs(net))} xu</span>`;
-  txPush('Mở khóa','',bet,'',net);
-  renderWallet();saveUser();
-}
-
-const MINI_GAMES={
-  guess:{name:'Đoán số 1–100',icon:'🔢'},
-  scratch:{name:'Cào thẻ',icon:'🎟️'},
-  memory:{name:'Lật bài tìm đôi',icon:'🃏'},
-  hilo:{name:'Đoán lớn nhỏ',icon:'🎲'},
-  pick:{name:'Bốc thăm',icon:'🎫'},
-  treasure:{name:'Đào kho báu 5×5',icon:'⛏️'}
-};
+function lockPress(){if(!user)return;const bet=Number($('lockBet').value);if(bet>S.wallet)return notify('Không đủ xu.');const d=Math.abs(lockP-.5);const mult=d<=.04?3:d<=.12?1.5:d<=.3?1:0;const net=Math.floor(bet*mult)-bet;S.wallet+=net;S.totals.shots++;const label=mult===3?'🎯 Hoàn hảo!':mult===1.5?'👍 Gần giữa!':mult===1?'😅 Vùng vàng':'❌ Lệch rồi';$('lockRes').innerHTML=`<span class="${net>=0?'up':'down'}">${label} ${net>=0?'+':'−'}${fmt(Math.abs(net))} xu</span>`;txPush('Mở khóa','',bet,'',net);renderWallet();saveUser()}
+const MINI_GAMES={guess:{name:'Đoán số 1–100',icon:'🔢'},scratch:{name:'Cào thẻ',icon:'🎟️'},memory:{name:'Lật bài tìm đôi',icon:'🃏'},hilo:{name:'Đoán lớn nhỏ',icon:'🎲'},pick:{name:'Bốc thăm',icon:'🎫'},treasure:{name:'Đào kho báu 5×5',icon:'⛏️'}};
 const MINI_BETS=[1000,10000,50000,100000];
-function openMini(id){
-  if(!user||!S)return;
-  $('miniTitle').textContent=MINI_GAMES[id].icon+' '+MINI_GAMES[id].name;
-  $('miniView').classList.remove('hidden');
-  $('homeScreen').classList.add('hidden');
-  ({guess:miniGuess,scratch:miniScratch,memory:miniMemory,hilo:miniHiLo,pick:miniPick,treasure:miniTreasure})[id]();
-  renderWallet();
-}
+function openMini(id){if(!user||!S)return;$('miniTitle').textContent=MINI_GAMES[id].icon+' '+MINI_GAMES[id].name;$('miniView').classList.remove('hidden');$('homeScreen').classList.add('hidden');({guess:miniGuess,scratch:miniScratch,memory:miniMemory,hilo:miniHiLo,pick:miniPick,treasure:miniTreasure})[id]();renderWallet()}
 function closeMini(){$('miniView').classList.add('hidden');showHome()}
-function miniBetSelect(id){
-  return `<select id="${id}Bet" class="inline">${MINI_BETS.map(b=>`<option value="${b}">${fmt(b)}</option>`).join('')}</select>`;
-}
+function miniBetSelect(id){return `<select id="${id}Bet" class="inline">${MINI_BETS.map(b=>`<option value="${b}">${fmt(b)}</option>`).join('')}</select>`}
 function canBet(b){if(b>S.wallet){notify('Không đủ xu.');return false}return true}
-
 let guessSecret=0,guessTry=0,guessBet=0;
-function miniGuess(){
-  guessSecret=rnd(1,100);guessTry=0;guessBet=0;
-  $('miniBody').innerHTML=`<div class="center">
-    <div class="hint">Máy nghĩ một số từ 1 đến 100. Bạn có 7 lượt. Đoán càng sớm thưởng càng lớn.</div>
-    <div style="margin:10px 0">Cược: ${miniBetSelect('guess')}</div>
-    <div class="btns" style="justify-content:center"><input id="guessIn" type="number" min="1" max="100" style="width:140px"><button onclick="guessDo()">Đoán</button></div>
-    <div id="guessMsg" class="res"></div>
-    <div class="hint" id="guessInfo"></div>
-    <button class="ghost" onclick="miniGuess()">Ván mới</button></div>`;
-}
-function guessDo(){
-  const v=Math.floor(Number($('guessIn').value));
-  if(guessTry===0){
-    const b=Number($('guessBet').value);
-    if(!canBet(b))return;
-    S.wallet-=b;guessBet=b;
-  }
-  if(!(v>=1&&v<=100))return notify('Nhập số từ 1 đến 100');
-  guessTry++;
-  if(v===guessSecret){
-    const mult=[5,4,3,2,2,1.5,1][guessTry-1]||1;
-    const pay=Math.floor(guessBet*mult);S.wallet+=pay;
-    $('guessMsg').innerHTML=`<span class="up">🎉 Đúng! Lượt ${guessTry}, nhận ${fmt(pay)} xu</span>`;
-    txPush('Đoán số','',guessBet,'',pay-guessBet);guessTry=99;
-  }else if(guessTry>=7){
-    $('guessMsg').innerHTML=`<span class="down">Hết lượt. Số đúng là ${guessSecret}</span>`;
-    txPush('Đoán số','',guessBet,'',-guessBet);guessTry=99;
-  }else{
-    $('guessMsg').textContent=v<guessSecret?'Số cần tìm lớn hơn':'Số cần tìm nhỏ hơn';
-  }
-  $('guessInfo').textContent=guessTry<99?'Lượt '+guessTry+'/7':'';
-  renderWallet();saveUser();
-}
-
+function miniGuess(){guessSecret=rnd(1,100);guessTry=0;guessBet=0;$('miniBody').innerHTML=`<div class="center"><div class="hint">Máy nghĩ số 1–100. Bạn có 7 lượt.</div><div style="margin:10px 0">Cược: ${miniBetSelect('guess')}</div><div class="btns" style="justify-content:center"><input id="guessIn" type="number" min="1" max="100" style="width:140px"><button onclick="guessDo()">Đoán</button></div><div id="guessMsg" class="res"></div><div class="hint" id="guessInfo"></div><button class="ghost" onclick="miniGuess()">Ván mới</button></div>`}
+function guessDo(){const v=Math.floor(Number($('guessIn').value));if(guessTry===0){const b=Number($('guessBet').value);if(!canBet(b))return;S.wallet-=b;guessBet=b}if(!(v>=1&&v<=100))return notify('Nhập số 1–100');guessTry++;if(v===guessSecret){const mult=[5,4,3,2,2,1.5,1][guessTry-1]||1;const pay=Math.floor(guessBet*mult);S.wallet+=pay;$('guessMsg').innerHTML=`<span class="up">🎉 Đúng! Lượt ${guessTry}, +${fmt(pay)} xu</span>`;txPush('Đoán số','',guessBet,'',pay-guessBet);guessTry=99}else if(guessTry>=7){$('guessMsg').innerHTML=`<span class="down">Hết lượt. Số đúng: ${guessSecret}</span>`;txPush('Đoán số','',guessBet,'',-guessBet);guessTry=99}else{$('guessMsg').textContent=v<guessSecret?'Lớn hơn':'Nhỏ hơn'}$('guessInfo').textContent=guessTry<99?'Lượt '+guessTry+'/7':'';renderWallet();saveUser()}
 const SCR=[['🍒',2],['🍋',3],['💎',5],['⭐',10],['🔔',0],['🍀',0]];
-function miniScratch(){
-  $('miniBody').innerHTML=`<div class="center">
-    <div class="hint">Cào 3 ô. Trùng 2 biểu tượng nhận ×2, trùng 3 nhận thưởng lớn.</div>
-    <div style="margin:10px 0">Cược: ${miniBetSelect('scr')}</div>
-    <div class="segs" id="scrCells"><div class="seg">❔</div><div class="seg">❔</div><div class="seg">❔</div></div>
-    <button onclick="scratchDo()">🎟️ Cào</button><div class="res" id="scrRes"></div></div>`;
-}
-function scratchDo(){
-  const b=Number($('scrBet').value);if(!canBet(b))return;
-  S.wallet-=b;
-  const cells=[0,1,2].map(()=>SCR[rnd(0,SCR.length-1)]);
-  $('scrCells').innerHTML=cells.map(c=>`<div class="seg on" style="font-size:30px">${c[0]}</div>`).join('');
-  let mult=0;
-  if(cells[0][0]===cells[1][0]&&cells[1][0]===cells[2][0])mult=cells[0][1]*5;
-  else if(cells[0][0]===cells[1][0]||cells[1][0]===cells[2][0]||cells[0][0]===cells[2][0])mult=2;
-  const pay=Math.floor(b*mult);S.wallet+=pay;
-  $('scrRes').innerHTML=pay>0?`<span class="up">🎉 Nhận ${fmt(pay)} xu (×${mult})</span>`:`<span class="down">Không trúng, mất ${fmt(b)} xu</span>`;
-  txPush('Cào thẻ','',b,'',pay-b);renderWallet();saveUser();
-}
-
+function miniScratch(){$('miniBody').innerHTML=`<div class="center"><div class="hint">Cào 3 ô. Trùng 2 ×2, trùng 3 thưởng lớn.</div><div style="margin:10px 0">Cược: ${miniBetSelect('scr')}</div><div class="segs" id="scrCells"><div class="seg">❔</div><div class="seg">❔</div><div class="seg">❔</div></div><button onclick="scratchDo()">🎟️ Cào</button><div class="res" id="scrRes"></div></div>`}
+function scratchDo(){const b=Number($('scrBet').value);if(!canBet(b))return;S.wallet-=b;const cells=[0,1,2].map(()=>SCR[rnd(0,SCR.length-1)]);$('scrCells').innerHTML=cells.map(c=>`<div class="seg on" style="font-size:30px">${c[0]}</div>`).join('');let mult=0;if(cells[0][0]===cells[1][0]&&cells[1][0]===cells[2][0])mult=cells[0][1]*5;else if(cells[0][0]===cells[1][0]||cells[1][0]===cells[2][0]||cells[0][0]===cells[2][0])mult=2;const pay=Math.floor(b*mult);S.wallet+=pay;$('scrRes').innerHTML=pay>0?`<span class="up">🎉 +${fmt(pay)} xu (×${mult})</span>`:`<span class="down">Không trúng, −${fmt(b)} xu</span>`;txPush('Cào thẻ','',b,'',pay-b);renderWallet();saveUser()}
 let memCards=[],memOpen=[],memFound=0,memLock=false,memBet=0;
-function miniMemory(){
-  $('miniBody').innerHTML=`<div class="center">
-    <div class="hint">Lật 2 lá mỗi lượt, tìm đôi giống nhau. Tìm đủ 6 đôi nhận ×4.</div>
-    <div style="margin:10px 0">Cược: ${miniBetSelect('mem')}</div>
-    <button onclick="memoryStart()">Bắt đầu</button>
-    <div id="memGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:340px;margin:12px auto"></div>
-    <div class="res" id="memRes"></div></div>`;
-}
-function memoryStart(){
-  memBet=Number($('memBet').value);if(!canBet(memBet))return;
-  S.wallet-=memBet;
-  const vals=['🐠','🐙','🦀','🐢','🐬','🦈'];
-  memCards=[...vals,...vals].sort(()=>Math.random()-.5).map((v,i)=>({v,i,up:false,done:false}));
-  memOpen=[];memFound=0;memLock=false;
-  $('memRes').textContent='';renderMem();renderWallet();
-}
-function renderMem(){
-  $('memGrid').innerHTML=memCards.map(c=>`<div class="seg ${c.up||c.done?'on':''}" style="font-size:24px;cursor:pointer;padding:12px 0" onclick="memFlip(${c.i})">${c.up||c.done?c.v:'❔'}</div>`).join('');
-}
-function memFlip(i){
-  const c=memCards[i];
-  if(memLock||c.up||c.done)return;
-  c.up=true;memOpen.push(c);renderMem();
-  if(memOpen.length===2){
-    memLock=true;
-    const [a,b]=memOpen;
-    setTimeout(()=>{
-      if(a.v===b.v){a.done=b.done=true;memFound++}
-      else{a.up=b.up=false}
-      memOpen=[];memLock=false;renderMem();
-      if(memFound===6){
-        const pay=memBet*4;S.wallet+=pay;
-        $('memRes').innerHTML=`<span class="up">🎉 Tìm đủ 6 đôi! Nhận ${fmt(pay)} xu</span>`;
-        txPush('Lật bài','',memBet,'',pay-memBet);renderWallet();saveUser();
-      }
-    },600);
-  }
-}
-
-function miniHiLo(){
-  $('miniBody').innerHTML=`<div class="center">
-    <div class="hint">Tổng 3 xúc xắc 11–17 là LỚN, 4–10 là NHỎ. Đoán đúng nhận ×1,95.</div>
-    <div style="margin:10px 0">Cược: ${miniBetSelect('hl')}</div>
-    <div class="btns" style="justify-content:center">
-      <button class="gold" onclick="hiloDo('L')">⬆️ LỚN</button>
-      <button class="red" onclick="hiloDo('N')">⬇️ NHỎ</button></div>
-    <div class="bcdice" id="hlDice"></div><div class="res" id="hlRes"></div></div>`;
-}
-function hiloDo(pick){
-  const b=Number($('hlBet').value);if(!canBet(b))return;
-  S.wallet-=b;
-  const d=[rnd(1,6),rnd(1,6),rnd(1,6)],t=d[0]+d[1]+d[2];
-  const win=(t>=11?'L':'N')===pick;
-  $('hlDice').innerHTML=d.map(x=>`<div class="die">${['⚀','⚁','⚂','⚃','⚄','⚅'][x-1]}</div>`).join('');
-  const pay=win?Math.floor(b*1.95):0;S.wallet+=pay;
-  $('hlRes').innerHTML=win?`<span class="up">🎉 Tổng ${t}. Thắng +${fmt(pay-b)} xu</span>`:`<span class="down">Tổng ${t}. Thua ${fmt(b)} xu</span>`;
-  txPush('Lớn nhỏ','',b,'',pay-b);renderWallet();saveUser();
-}
-
+function miniMemory(){$('miniBody').innerHTML=`<div class="center"><div class="hint">Lật 2 lá mỗi lượt, tìm đủ 6 đôi nhận ×4.</div><div style="margin:10px 0">Cược: ${miniBetSelect('mem')}</div><button onclick="memoryStart()">Bắt đầu</button><div id="memGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:340px;margin:12px auto"></div><div class="res" id="memRes"></div></div>`}
+function memoryStart(){memBet=Number($('memBet').value);if(!canBet(memBet))return;S.wallet-=memBet;const vals=['🐠','🐙','🦀','🐢','🐬','🦈'];memCards=[...vals,...vals].sort(()=>Math.random()-.5).map((v,i)=>({v,i,up:false,done:false}));memOpen=[];memFound=0;memLock=false;$('memRes').textContent='';renderMem();renderWallet()}
+function renderMem(){$('memGrid').innerHTML=memCards.map(c=>`<div class="seg ${c.up||c.done?'on':''}" style="font-size:24px;cursor:pointer;padding:12px 0" onclick="memFlip(${c.i})">${c.up||c.done?c.v:'❔'}</div>`).join('')}
+function memFlip(i){const c=memCards[i];if(memLock||c.up||c.done)return;c.up=true;memOpen.push(c);renderMem();if(memOpen.length===2){memLock=true;const [a,b]=memOpen;setTimeout(()=>{if(a.v===b.v){a.done=b.done=true;memFound++}else{a.up=b.up=false}memOpen=[];memLock=false;renderMem();if(memFound===6){const pay=memBet*4;S.wallet+=pay;$('memRes').innerHTML=`<span class="up">🎉 Đủ 6 đôi! +${fmt(pay)} xu</span>`;txPush('Lật bài','',memBet,'',pay-memBet);renderWallet();saveUser()}},600)}}
+function miniHiLo(){$('miniBody').innerHTML=`<div class="center"><div class="hint">Tổng 3 xúc xắc 11–17 LỚN, 4–10 NHỎ. Đúng ×1,95.</div><div style="margin:10px 0">Cược: ${miniBetSelect('hl')}</div><div class="btns" style="justify-content:center"><button class="gold" onclick="hiloDo('L')">⬆️ LỚN</button><button class="red" onclick="hiloDo('N')">⬇️ NHỎ</button></div><div class="bcdice" id="hlDice"></div><div class="res" id="hlRes"></div></div>`}
+function hiloDo(pick){const b=Number($('hlBet').value);if(!canBet(b))return;S.wallet-=b;const d=[rnd(1,6),rnd(1,6),rnd(1,6)],t=d[0]+d[1]+d[2];const win=(t>=11?'L':'N')===pick;$('hlDice').innerHTML=d.map(x=>`<div class="die">${['⚀','⚁','⚂','⚃','⚄','⚅'][x-1]}</div>`).join('');const pay=win?Math.floor(b*1.95):0;S.wallet+=pay;$('hlRes').innerHTML=win?`<span class="up">🎉 Tổng ${t}. +${fmt(pay-b)} xu</span>`:`<span class="down">Tổng ${t}. −${fmt(b)} xu</span>`;txPush('Lớn nhỏ','',b,'',pay-b);renderWallet();saveUser()}
 let pkBetHold=0,pkArr=[],pkPlaying=false;
-function miniPick(){
-  $('miniBody').innerHTML=`<div class="center">
-    <div class="hint">10 lá: 1 lá ×4, 2 lá hoàn cược, 7 lá trượt. Bấm bốc thăm rồi chọn 1 lá.</div>
-    <div style="margin:10px 0">Cược: ${miniBetSelect('pk')}</div>
-    <button onclick="pickDo()">🎫 Bốc thăm</button>
-    <div class="grid" id="pkGrid" style="grid-template-columns:repeat(5,1fr);max-width:400px;margin:12px auto"></div>
-    <div class="res" id="pkRes"></div></div>`;
-  $('pkGrid').innerHTML=[...Array(10)].map((_,i)=>`<div class="seg" style="cursor:pointer;font-size:22px;padding:14px 0" onclick="pickChoose(${i})">🎫</div>`).join('');
-}
-function pickDo(){
-  const b=Number($('pkBet').value);if(!canBet(b))return;
-  S.wallet-=b;pkBetHold=b;
-  pkArr=['x4','h','h','t','t','t','t','t','t','t'].sort(()=>Math.random()-.5);
-  pkPlaying=true;$('pkRes').textContent='Chọn một lá';
-  renderWallet();
-}
-function pickChoose(i){
-  if(!pkPlaying)return notify('Bấm 🎫 Bốc thăm trước');
-  const r=pkArr[i];pkPlaying=false;
-  const pay=r==='x4'?pkBetHold*4:r==='h'?pkBetHold:0;
-  S.wallet+=pay;
-  const txt={x4:'🎉 Trúng ×4!',h:'😐 Hoàn cược',t:'💥 Trượt'}[r];
-  $('pkRes').innerHTML=`<span class="${pay>pkBetHold?'up':pay===pkBetHold?'':'down'}">${txt} Nhận ${fmt(pay)} xu</span>`;
-  txPush('Bốc thăm','',pkBetHold,'',pay-pkBetHold);renderWallet();saveUser();
-}
-
+function miniPick(){$('miniBody').innerHTML=`<div class="center"><div class="hint">10 lá: 1 lá ×4, 2 lá hoàn cược, 7 lá trượt.</div><div style="margin:10px 0">Cược: ${miniBetSelect('pk')}</div><button onclick="pickDo()">🎫 Bốc thăm</button><div class="grid" id="pkGrid" style="grid-template-columns:repeat(5,1fr);max-width:400px;margin:12px auto"></div><div class="res" id="pkRes"></div></div>`;$('pkGrid').innerHTML=[...Array(10)].map((_,i)=>`<div class="seg" style="cursor:pointer;font-size:22px;padding:14px 0" onclick="pickChoose(${i})">🎫</div>`).join('')}
+function pickDo(){const b=Number($('pkBet').value);if(!canBet(b))return;S.wallet-=b;pkBetHold=b;pkArr=['x4','h','h','t','t','t','t','t','t','t'].sort(()=>Math.random()-.5);pkPlaying=true;$('pkRes').textContent='Chọn một lá';renderWallet()}
+function pickChoose(i){if(!pkPlaying)return notify('Bấm 🎫 Bốc thăm trước');const r=pkArr[i];pkPlaying=false;const pay=r==='x4'?pkBetHold*4:r==='h'?pkBetHold:0;S.wallet+=pay;const txt={x4:'🎉 Trúng ×4!',h:'😐 Hoàn cược',t:'💥 Trượt'}[r];$('pkRes').innerHTML=`<span class="${pay>pkBetHold?'up':pay===pkBetHold?'':'down'}">${txt} Nhận ${fmt(pay)} xu</span>`;txPush('Bốc thăm','',pkBetHold,'',pay-pkBetHold);renderWallet();saveUser()}
 let trCells=[],trBet=0,trDone=false;
-function miniTreasure(){
-  $('miniBody').innerHTML=`<div class="center">
-    <div class="hint">Lưới 5×5 có 1 kho báu (×5) và 4 bom. Đào trúng bom là mất cược.</div>
-    <div style="margin:10px 0">Cược: ${miniBetSelect('tr')}</div>
-    <button onclick="treasureStart()">⛏️ Bắt đầu</button>
-    <div id="trGrid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;max-width:320px;margin:12px auto"></div>
-    <div class="res" id="trRes"></div></div>`;
-}
-function treasureStart(){
-  trBet=Number($('trBet').value);if(!canBet(trBet))return;
-  S.wallet-=trBet;
-  const pos=[...Array(25).keys()].sort(()=>Math.random()-.5);
-  trCells=Array(25).fill('');
-  trCells[pos[0]]='gold';
-  for(let i=1;i<=4;i++)trCells[pos[i]]='bomb';
-  trDone=false;renderTreasure();
-  $('trRes').textContent='Chọn một ô để đào';
-  renderWallet();
-}
-function renderTreasure(){
-  $('trGrid').innerHTML=trCells.map((c,i)=>`<div class="seg" style="cursor:pointer;padding:10px 0;font-size:20px" onclick="digCell(${i})">${c==='gold'&&trDone?'👑':c==='bomb'&&trDone?'💣':(c==='dug'?'🟫':'⬜')}</div>`).join('');
-}
-function digCell(i){
-  if(trDone)return;
-  const c=trCells[i];
-  if(c==='gold'||c==='bomb'){
-    trDone=true;
-    if(c==='gold'){
-      const pay=trBet*5;S.wallet+=pay;
-      $('trRes').innerHTML=`<span class="up">👑 Tìm thấy kho báu! Nhận ${fmt(pay)} xu</span>`;
-      txPush('Kho báu','',trBet,'',pay-trBet);
-    }else{
-      $('trRes').innerHTML=`<span class="down">💣 Trúng bom, mất ${fmt(trBet)} xu</span>`;
-      txPush('Kho báu','',trBet,'',-trBet);
-    }
-    renderTreasure();renderWallet();saveUser();
-  }else{
-    trCells[i]='dug';renderTreasure();
-    $('trRes').textContent='Ô an toàn. Tiếp tục đào.';
-  }
-}
-
-showDevId();
+function miniTreasure(){$('miniBody').innerHTML=`<div class="center"><div class="hint">Lưới 5×5 có 1 kho báu (×5) và 4 bom. Trúng bom mất cược.</div><div style="margin:10px 0">Cược: ${miniBetSelect('tr')}</div><button onclick="treasureStart()">⛏️ Bắt đầu</button><div id="trGrid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;max-width:320px;margin:12px auto"></div><div class="res" id="trRes"></div></div>`}
+function treasureStart(){trBet=Number($('trBet').value);if(!canBet(trBet))return;S.wallet-=trBet;const pos=[...Array(25).keys()].sort(()=>Math.random()-.5);trCells=Array(25).fill('');trCells[pos[0]]='gold';for(let i=1;i<=4;i++)trCells[pos[i]]='bomb';trDone=false;renderTreasure();$('trRes').textContent='Chọn một ô để đào';renderWallet()}
+function renderTreasure(){$('trGrid').innerHTML=trCells.map((c,i)=>`<div class="seg" style="cursor:pointer;padding:10px 0;font-size:20px" onclick="digCell(${i})">${c==='gold'&&trDone?'👑':c==='bomb'&&trDone?'💣':(c==='dug'?'🟫':'⬜')}</div>`).join('')}
+function digCell(i){if(trDone)return;const c=trCells[i];if(c==='gold'||c==='bomb'){trDone=true;if(c==='gold'){const pay=trBet*5;S.wallet+=pay;$('trRes').innerHTML=`<span class="up">👑 Tìm thấy kho báu! +${fmt(pay)} xu</span>`;txPush('Kho báu','',trBet,'',pay-trBet)}else{$('trRes').innerHTML=`<span class="down">💣 Trúng bom, −${fmt(trBet)} xu</span>`;txPush('Kho báu','',trBet,'',-trBet)}renderTreasure();renderWallet();saveUser()}else{trCells[i]='dug';renderTreasure();$('trRes').textContent='Ô an toàn. Tiếp tục đào.'}}
 renderAmmo();
 </script>
 </body>
